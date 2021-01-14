@@ -16,7 +16,16 @@
   <AttemptHistory />
   <Segments>
     <Segment>
-      <Name>Prologue + To the Freedom Fighter Base MOGRA</Name>
+      <Name>Prologue</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>To the Freedom Fighter Base MOGRA</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
