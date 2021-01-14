@@ -14,10 +14,23 @@ state("AkibaUU")
     each main and side mission
     */
     int completedMissions: "AkibaUU.exe", 0x4B272C;
+
+    /*
+    onMap
+    player on the map with number onMap
+    */
+    int onMap: "AkibaUU.exe", 0x4EDF0C;
 }
 
 split {
-    return current.completedMissions != old.completedMissions;
+    if (old.completedMissions == 0 && current.completedMissions == 0 && current.onMap == 3 && old.onMap == 25) {
+        return true;
+    }
+
+    if (current.completedMissions >= 1) {
+        return current.completedMissions != old.completedMissions;
+    }
+    
 }
 
 isLoading
