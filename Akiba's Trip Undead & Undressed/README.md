@@ -7,6 +7,11 @@ Autosplitter splitting prologue and each main and side mission for all endings. 
 Autosplitter splitting prologue and leaving Akiba. Timer stops automatically after the last split.
 ## Splits
 * [Normal Ending](https://github.com/C0Y0TL/asl/blob/main/Akiba's%20Trip%20Undead%20%26%20Undressed/lss/normal_ending.lss)
+* Shizuku True Ending
+* Rin True Ending
+* Tohko True Ending
+* Shion True Ending
+* Sister Ending
 * [Train Run](https://github.com/C0Y0TL/asl/blob/main/Akiba's%20Trip%20Undead%20%26%20Undressed/lss/train_run.lss)
 ## Contacts
 Discord COYOTL#2988
