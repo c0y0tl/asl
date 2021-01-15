@@ -2,7 +2,7 @@
 <Run version="1.7.0">
   <GameIcon />
   <GameName>Akiba's Trip: Undead &amp; Undressed</GameName>
-  <CategoryName>New Game, Normal Ending</CategoryName>
+  <CategoryName>New Game+ Shizuku True Ending</CategoryName>
   <Metadata>
     <Run id="" />
     <Platform usesEmulator="False">
@@ -232,7 +232,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Patrol Main Street Southwest with Tohko</Name>
+      <Name>Patrol Akihabara Park with Shizuku</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -241,7 +241,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Hurry to the Suit Store with Tohko!</Name>
+      <Name>Hurry to the Suit Store with Shizuku!</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -250,7 +250,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Help Tohko Pick Out a Smartphone</Name>
+      <Name>Go Figurine Shopping with Shizuku</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -259,7 +259,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Pass Rins's Challenge</Name>
+      <Name>See What Ms. Kasugai is Up To</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -268,7 +268,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Meet with Managing Director Sakaguchi</Name>
+      <Name>Operation Decoy, Commence!</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />

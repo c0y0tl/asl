@@ -2,7 +2,7 @@
 <Run version="1.7.0">
   <GameIcon />
   <GameName>Akiba's Trip: Undead &amp; Undressed</GameName>
-  <CategoryName>New Game, Normal Ending</CategoryName>
+  <CategoryName>New Game+ Tohko True Ending</CategoryName>
   <Metadata>
     <Run id="" />
     <Platform usesEmulator="False">
@@ -12,8 +12,10 @@
     <Variables />
   </Metadata>
   <Offset>00:00:00</Offset>
-  <AttemptCount>0</AttemptCount>
-  <AttemptHistory />
+  <AttemptCount>1</AttemptCount>
+  <AttemptHistory>
+    <Attempt id="1" started="01/15/2021 14:44:03" isStartedSynced="True" ended="01/15/2021 14:46:07" isEndedSynced="True" />
+  </AttemptHistory>
   <Segments>
     <Segment>
       <Name>Prologue</Name>
@@ -97,7 +99,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Patrol Junk Street with Shizuku</Name>
+      <Name>Patrolling Main Street Northeast with Tohko</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -232,7 +234,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Patrol Main Street Southwest with Tohko</Name>
+      <Name>Patrolling Main Street Southwest with Tohko</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -259,7 +261,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Pass Rins's Challenge</Name>
+      <Name>Pass Rin's Challenge</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />

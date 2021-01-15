@@ -2,7 +2,7 @@
 <Run version="1.7.0">
   <GameIcon />
   <GameName>Akiba's Trip: Undead &amp; Undressed</GameName>
-  <CategoryName>New Game, Normal Ending</CategoryName>
+  <CategoryName>New Game+ Shion True Ending</CategoryName>
   <Metadata>
     <Run id="" />
     <Platform usesEmulator="False">
@@ -97,7 +97,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Patrol Junk Street with Shizuku</Name>
+      <Name>Patrolling the Radio Kaikan Area Alone</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -232,7 +232,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Patrol Main Street Southwest with Tohko</Name>
+      <Name>Patrolling Junk Street with Rin and Kati</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -241,7 +241,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Hurry to the Suit Store with Tohko!</Name>
+      <Name>Go to Akihabara Park with Ms. Kasugai</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -250,7 +250,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Help Tohko Pick Out a Smartphone</Name>
+      <Name>Stop at GO!GO!CURRY with Ms. Kasugai.</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -259,7 +259,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Pass Rins's Challenge</Name>
+      <Name>Return to the Organization's Hideout</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -268,7 +268,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Meet with Managing Director Sakaguchi</Name>
+      <Name>Investigate the Missing Synthisters</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -277,7 +277,43 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Off to the Final Battle</Name>
+      <Name>Strategy Meeting at Akimori Shrine</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Off to Confront Souga Kagutsuki!</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Stop the Akiba Freedom Fighters' Advances!</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Secure Radio Kaikan!</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Go to Radio Kaikan</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />

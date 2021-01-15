@@ -2,7 +2,7 @@
 <Run version="1.7.0">
   <GameIcon />
   <GameName>Akiba's Trip: Undead &amp; Undressed</GameName>
-  <CategoryName>New Game, Normal Ending</CategoryName>
+  <CategoryName>New Game+ Sister Ending</CategoryName>
   <Metadata>
     <Run id="" />
     <Platform usesEmulator="False">
@@ -97,7 +97,25 @@
       <SegmentHistory />
     </Segment>
     <Segment>
+      <Name>Mission: Sister's Wish</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
       <Name>Patrol Junk Street with Shizuku</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Mission: Sister's Wish 2</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -142,6 +160,15 @@
       <SegmentHistory />
     </Segment>
     <Segment>
+      <Name>Mission: Sister's Wish 3</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
       <Name>Hurry to Electric Town Plaza!</Name>
       <Icon />
       <SplitTimes>
@@ -169,6 +196,15 @@
       <SegmentHistory />
     </Segment>
     <Segment>
+      <Name>Mission: Sister's Wish 4</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
       <Name>Head to Akihabara Park</Name>
       <Icon />
       <SplitTimes>
@@ -188,6 +224,15 @@
     </Segment>
     <Segment>
       <Name>Cosplay Fest Begins!</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Favor For Pops</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -224,6 +269,15 @@
     </Segment>
     <Segment>
       <Name>To the Battle Arena, Where Zenya Amo Awaits!</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Sister's Bodyguard</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
