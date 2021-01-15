@@ -1,6 +1,6 @@
 # Akiba's Trip: Undead & Undressed
 ## ⚠ Important information
-Splits should include the prologue and all the main and side missions that you go through.
+Splits should include the prologue and all the main and side missions that you go through. No automatic start.
 ## All Endings
 Autosplitter splitting prologue and each main and side mission for all endings. Timer stops automatically after the last split.
 ## Train Run
