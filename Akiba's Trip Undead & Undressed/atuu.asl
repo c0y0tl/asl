@@ -29,18 +29,21 @@ state("AkibaUU")
 }
 
 split {
-    // Split end train run
-    if (current.onMap == 1 && current.leavAkiba == 151 && current.completedMissions == 0) {
+    // Split end for train run
+    if (current.onMap == 1 && current.leavAkiba == 151 && current.completedMissions == 0)
+    {
         return true;
     }
     // Split prologue
-    if (old.completedMissions == 0 && current.completedMissions == 0 && current.onMap == 3 && old.onMap == 25) {
+    if (old.completedMissions == 0 && current.completedMissions == 0 && current.onMap == 3 && old.onMap == 25)
+    {
         return true;
     }
     // Split each main and side mission after prologue
-    if (current.completedMissions >= 1) {
+    if (current.completedMissions >= 1)
+    {
         return current.completedMissions != old.completedMissions;
-    }   
+    }
 }
 
 isLoading
