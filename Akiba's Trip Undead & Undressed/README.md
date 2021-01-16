@@ -1,6 +1,8 @@
 # Akiba's Trip: Undead & Undressed
 ## ⚠ Important information
 Splits should include the prologue and all the main and side missions that you go through. No automatic start.
+## Uage
+Download the script, add Control -> Scriptable Auto Splitter to your layout, open the layout settings, and point it to the file you downloaded. This is generally only used to test new scripts and normally shouldn't be used.
 ## All Endings
 Autosplitter splitting prologue and each main and side mission for all endings. Timer stops automatically after the last split.
 ## Train Run
