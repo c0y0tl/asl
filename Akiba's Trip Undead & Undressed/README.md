@@ -4,9 +4,9 @@ Splits should include the prologue and all the main and side missions that you g
 ## Uage
 Download the script, add Control -> Scriptable Auto Splitter to your layout, open the layout settings, and point it to the file you downloaded. This is generally only used to test new scripts and normally shouldn't be used.
 ## All Endings
-Autosplitter splitting prologue and each main and side mission for all endings. Timer stops automatically after the last split.
+Autosplitter splitting prologue and each main and side mission for all endings. Timer stops automatically after completing the last mission.
 ## Train Run
-Autosplitter splitting prologue and leaving Akiba. Timer stops automatically after the last split.
+Autosplitter splitting prologue and leaving Akiba. Timer stops automatically.
 ## Splits
 * [Normal Ending](https://github.com/C0Y0TL/asl/blob/main/Akiba's%20Trip%20Undead%20%26%20Undressed/lss/normal_ending.lss)
 * [Shizuku True Ending](https://github.com/C0Y0TL/asl/blob/main/Akiba's%20Trip%20Undead%20%26%20Undressed/lss/shizuku_true_ending.lss)
