@@ -1,6 +1,7 @@
 # Akiba's Trip: Undead & Undressed
-## ⚠ Important information
-The script is broken at the moment. I'm waiting for the end of all the ATUU updates.
+## Features
+* Splits the prologue and each main and side missions for all endings.
+* Train Run not supported.
 ## Uage
 Download the script, add Control -> Scriptable Auto Splitter to your layout, open the layout settings, and point it to the file you downloaded. This is generally only used to test new scripts and normally shouldn't be used.
 ## Splits
