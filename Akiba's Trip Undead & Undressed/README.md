@@ -2,7 +2,7 @@
 ## Features
 * Splits the prologue and each main and side missions for all endings.
 * Train Run not supported.
-## Uage
+## Usage
 Download the script, add Control -> Scriptable Auto Splitter to your layout, open the layout settings, and point it to the file you downloaded. This is generally only used to test new scripts and normally shouldn't be used.
 ## Splits
 * [Normal Ending](https://github.com/C0Y0TL/asl/blob/main/Akiba's%20Trip%20Undead%20%26%20Undressed/lss/normal_ending.lss)
