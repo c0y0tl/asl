@@ -52,15 +52,6 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Adorable Little Sister's Request</Name>
-      <Icon />
-      <SplitTimes>
-        <SplitTime name="Personal Best" />
-      </SplitTimes>
-      <BestSegmentTime />
-      <SegmentHistory />
-    </Segment>
-    <Segment>
       <Name>A Favor For Your Sister</Name>
       <Icon />
       <SplitTimes>
