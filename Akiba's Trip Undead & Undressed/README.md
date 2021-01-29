@@ -1,5 +1,11 @@
 # Akiba's Trip: Undead & Undressed
+<<<<<<< HEAD
 
+=======
+## Features
+* Splits the prologue and each main and side missions for all endings.
+* Train Run not supported.
+>>>>>>> 24d4d9bd6af24723c27f48cb591810823224c720
 ## Usage
 Download the script, add Control -> Scriptable Auto Splitter to your layout, open the layout settings, and point it to the file you downloaded. This is generally only used to test new scripts and normally shouldn't be used.
 
