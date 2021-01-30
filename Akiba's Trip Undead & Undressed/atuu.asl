@@ -13,6 +13,9 @@ state("AkibaUU")
 
     // Changes the value to 111 when credits start
     int creditsStart: "AkibaUU.exe", 0x481500;
+
+    // End for Train Run
+    int trainEnd: "AkibaUU.exe", 0x4ACA64;
 }
 
 startup
@@ -33,8 +36,7 @@ startup
         Tuple.Create(10, 14, 1.178108f, -3.251970f, 9.506982f),
         Tuple.Create(11, 3, 1.354699f, 27.982529f, 8.312622f),
         Tuple.Create(12, 9, 1.179444f, -1.225575f, -36.363506f),
-        Tuple.Create(13, 2, 1.340432f, 43.361782f, -75.738457f),
-        
+        Tuple.Create(13, 2, 1.340432f, 43.361782f, -75.738457f),    
     };
 
     // Chapter 2
@@ -98,15 +100,12 @@ startup
     // Chapter 3 - Shion 400
     vars.chapter3Shion = new Tuple<int, int, float, float, float>[]
     {
-        Tuple.Create(323, 14, 1.282270f, -4.978224f, 9.561569f),
-        Tuple.Create(324, 13, 1.008330f, 60.626144f, 46.817780f),
-        Tuple.Create(325, 6, 1.502857f, -8.490373f, -61.773266f),
-        Tuple.Create(326, 17, 1.392580f, 7.410832f, 0.348735f),
-        Tuple.Create(327, 16, 1.307403f, 0.875389f, -17.276546f),
-        Tuple.Create(328, 19, 1.368003f, 31.868629f, -19.367922f),
-        Tuple.Create(329, 16, 0.381696f, 2.584327f, -10.294657f),
-        Tuple.Create(330, 5, 2.058285f, 17.414858f, -161.731430f),
-        Tuple.Create(331, 3, 1.616837f, -10.755868f, 8.205438f),
+        Tuple.Create(423, 14, 1.282270f, -4.978224f, 9.561569f),
+        Tuple.Create(424, 13, 1.008330f, 60.626144f, 46.817780f),
+        Tuple.Create(425, 6, 1.502857f, -8.490373f, -61.773266f),
+        Tuple.Create(426, 17, 1.392580f, 7.410832f, 0.348735f),
+        Tuple.Create(427, 16, 1.307403f, 0.875389f, -17.276546f),
+        Tuple.Create(428, 19, 1.368003f, 31.868629f, -19.367922f),
     };
 
     // Settings
@@ -139,12 +138,12 @@ startup
     settings.Add("21", true, "M21 - Patrol Yodobashi Area with Shizuku", "chapter2");
     settings.Add("22", true, "M22 - To the Battle Arena where Zenya Amou Awaits!", "chapter2");
     // Chapter 3 - Shizuku 100
-    settings.Add("chapter3_shizuku", true, "Chapter 3 - Shizuku");
-    settings.Add("123", true, "M23 - Patrol Akihabara Park with Shizuku", "chapter3_shizuku");
-    settings.Add("124", true, "M24 - Hurry to the Suit Store with Shizuku!", "chapter3_shizuku");
-    settings.Add("125", true, "M25 - Go Figurine Shopping with Shizuku", "chapter3_shizuku");
-    settings.Add("126", true, "M26 - See What Ms. Kasugai is Up To", "chapter3_shizuku");
-    settings.Add("127", true, "M27 - Operation Decoy, Commence!", "chapter3_shizuku");
+    settings.Add("chapter3_shizuku", false, "Chapter 3 - Shizuku");
+    settings.Add("123", false, "M23 - Patrol Akihabara Park with Shizuku", "chapter3_shizuku");
+    settings.Add("124", false, "M24 - Hurry to the Suit Store with Shizuku!", "chapter3_shizuku");
+    settings.Add("125", false, "M25 - Go Figurine Shopping with Shizuku", "chapter3_shizuku");
+    settings.Add("126", false, "M26 - See What Ms. Kasugai is Up To", "chapter3_shizuku");
+    settings.Add("127", false, "M27 - Operation Decoy, Commence!", "chapter3_shizuku");
     // Chapter 3 - Tohko 200
     settings.Add("chapter3_tohko", true, "Chapter 3 - Tohko - Normal Ending");
     settings.Add("223", true, "M23 - Patrolling Main Street Southwest with Tohko", "chapter3_tohko");
@@ -153,32 +152,32 @@ startup
     settings.Add("226", true, "M26 - Pass Rin's Challenge", "chapter3_tohko");
     settings.Add("227", true, "M27 - Meet with Managing Director Sakaguchi", "chapter3_tohko");
     // Chapter 3 - Rin 300
-    settings.Add("chapter3_rin", true, "Chapter 3 - Rin");
-    settings.Add("323", true, "M23 - Patrol Main Street Northwest with Rin", "chapter3_rin");
-    settings.Add("324", true, "M24 - Hurry to the Suit Store with Rin!", "chapter3_rin");
-    settings.Add("325", true, "M25 - Head to the Accessory Shop", "chapter3_rin");
-    settings.Add("326", true, "M26 - Stop Tohko's Rampage!", "chapter3_rin");
-    settings.Add("327", true, "M27 - Carry Out the Plan!", "chapter3_rin");
+    settings.Add("chapter3_rin", false, "Chapter 3 - Rin");
+    settings.Add("323", false, "M23 - Patrol Main Street Northwest with Rin", "chapter3_rin");
+    settings.Add("324", false, "M24 - Hurry to the Suit Store with Rin!", "chapter3_rin");
+    settings.Add("325", false, "M25 - Head to the Accessory Shop", "chapter3_rin");
+    settings.Add("326", false, "M26 - Stop Tohko's Rampage!", "chapter3_rin");
+    settings.Add("327", false, "M27 - Carry Out the Plan!", "chapter3_rin");
     // Chapter 3 - Shion 400
-    settings.Add("chapter3_shion", true, "Chapter 3 - Shion");
-    settings.Add("423", true, "M23 - Patrolling Junk Street with Rin and Kati", "chapter3_shion");
-    settings.Add("424", true, "M24 - Go to Akihabara Park with Ms. Kasugai", "chapter3_shion");
-    settings.Add("425", true, "M25 - Stop at GO!GO!CURRY with Ms. Kasugai.", "chapter3_shion");
-    settings.Add("426", true, "M26 - Return to the Organization's Hideout", "chapter3_shion");
-    settings.Add("427", true, "M27 - Investigate the Missing Synthisters", "chapter3_shion");
-    settings.Add("428", true, "M28 - Strategy Meeting at Akimori Shrine", "chapter3_shion");
-    settings.Add("429", true, "M29 - Off to Confront Souga Kagutsuki!", "chapter3_shion");
-    settings.Add("430", true, "M30 - Stop the Akiba Freedom Fighters' Advances!", "chapter3_shion");
-    settings.Add("431", true, "M31 - Secure Radio Kaikan!", "chapter3_shion");
+    settings.Add("chapter3_shion", false, "Chapter 3 - Shion");
+    settings.Add("423", false, "M23 - Patrolling Junk Street with Rin and Kati", "chapter3_shion");
+    settings.Add("424", false, "M24 - Go to Akihabara Park with Ms. Kasugai", "chapter3_shion");
+    settings.Add("425", false, "M25 - Stop at GO!GO!CURRY with Ms. Kasugai.", "chapter3_shion");
+    settings.Add("426", false, "M26 - Return to the Organization's Hideout", "chapter3_shion");
+    settings.Add("427", false, "M27 - Investigate the Missing Synthisters", "chapter3_shion");
+    settings.Add("428", false, "M28 - Strategy Meeting at Akimori Shrine", "chapter3_shion");
+    settings.Add("429", false, "M29 - Off to Confront Souga Kagutsuki!", "chapter3_shion");
+    settings.Add("430", false, "M30 - Stop the Akiba Freedom Fighters' Advances!", "chapter3_shion");
+    settings.Add("431", false, "M31 - Secure Radio Kaikan!", "chapter3_shion");
     // Chapter 3 - Endings
-    settings.Add("endings", true, "Endings [Not recommended]");
+    settings.Add("endings", true, "Endings");
     settings.Add("28", true, "M28 - Normal Ending - Off to the Final Battle", "endings");
-    settings.Add("128", true, "M28 - Shizuku - Off to the Final Battle", "endings");
-    settings.Add("228", true, "M28 - Tohko - Off to the Final Battle", "endings");
-    settings.Add("328", true, "M28 - Rin - Off to the Final Battle", "endings");
-    settings.Add("433", true, "M32 - Shion - Go to Radio Kaikan", "endings");
+    settings.Add("128", false, "M28 - Shizuku - Off to the Final Battle", "endings");
+    settings.Add("228", false, "M28 - Tohko - Off to the Final Battle", "endings");
+    settings.Add("328", false, "M28 - Rin - Off to the Final Battle", "endings");
+    settings.Add("432", false, "M32 - Shion - Go to Radio Kaikan", "endings");
     // Train 500
-    //settings.Add("502", true, "Leav Akihabara", "endings");
+    settings.Add("502", false, "Leav Akihabara", "endings");
 
     // Variable for round position
     vars.roundY = 0;
@@ -195,9 +194,6 @@ init
 	vars.counterС3Tohko = 0;
 	vars.counterС3Rin = 0;
 	vars.counterС3Shion = 0;
-
-    // Counter for sister missions
-	vars.counterSister = 0; 
 }
 
 update
@@ -218,43 +214,54 @@ split {
         }
     }
 
+    // End Train Run
+    if (settings["502"])
+    {
+        if (current.mapNumber == 1 && (current.trainEnd == 223 || current.trainEnd == 151)  && current.missionСounter == 0)
+        {
+            return true;
+        }
+    }
+
     if (current.missionСounter != old.missionСounter)
     {
         // Chapter 1
         if (vars.counterC1 <= 12)
         {
-            if (settings[(vars.counterC1 + 1).ToString()])
+            if (vars.roundY == Math.Round(vars.chapter1[vars.counterC1].Item3,3) && vars.roundZ == Math.Round(vars.chapter1[vars.counterC1].Item4,3) && vars.roundX == Math.Round(vars.chapter1[vars.counterC1].Item5,3))
             {
-                if (vars.roundY == Math.Round(vars.chapter1[vars.counterC1].Item3,3) && vars.roundZ == Math.Round(vars.chapter1[vars.counterC1].Item4,3) && vars.roundX == Math.Round(vars.chapter1[vars.counterC1].Item5,3))
+                if (settings[(vars.counterC1 + 1).ToString()])
                 {
                     vars.counterC1++;
                     return true;
                 }
+                else
+                {
+                    vars.counterC1++;
+                }
             }
-            else
-            {
-                vars.counterC1++;
-            } 
         }
 
         // Chapter 2 before "To the Battle Arena where Zenya Amou Awaits!"
-        if (vars.counterC2 <= 7) {
-            if (settings[(vars.counterC2 + 1).ToString()])
+        if (vars.counterC2 <= 7)
+        {
+            if (vars.roundY == Math.Round(vars.chapter2[vars.counterC2].Item3,3) && vars.roundZ == Math.Round(vars.chapter2[vars.counterC2].Item4,3) && vars.roundX == Math.Round(vars.chapter2[vars.counterC2].Item5,3))
             {
-                if (vars.roundY == Math.Round(vars.chapter2[vars.counterC2].Item3,3) && vars.roundZ == Math.Round(vars.chapter2[vars.counterC2].Item4,3) && vars.roundX == Math.Round(vars.chapter2[vars.counterC2].Item5,3))
+                if (settings[(vars.counterC2 + 1).ToString()])
                 {
                     vars.counterC2++;
                     return true;
                 }
+                else
+                {
+                    vars.counterC2++;
+                }
             }
-            else
-            {
-                vars.counterC2++;
-            } 
         }
 
         // Chapter 2 "To the Battle Arena where Zenya Amou Awaits!"
-        if (settings["22"]) {
+        if (settings["22"])
+        {
             // Normal Ending, Tohko, Sister
             if (vars.roundY == Math.Round(vars.chapter2Zenya[0].Item3,3) && vars.roundZ == Math.Round(vars.chapter2Zenya[0].Item4,3) && vars.roundX == Math.Round(vars.chapter2Zenya[0].Item5,3))
             {
@@ -284,73 +291,116 @@ split {
         // Normal Ending, Tohko, Sister
         if (vars.counterС3Tohko <= 4)
         {
-            if (settings[(vars.counterС3Tohko + 1 + 222).ToString()])
+            if (vars.roundY == Math.Round(vars.chapter3Tohko[vars.counterС3Tohko].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Tohko[vars.counterС3Tohko].Item4,3) && vars.roundX == Math.Round(vars.chapter3Tohko[vars.counterС3Tohko].Item5,3))
             {
-                if (vars.roundY == Math.Round(vars.chapter3Tohko[vars.counterС3Tohko].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Tohko[vars.counterС3Tohko].Item4,3) && vars.roundX == Math.Round(vars.chapter3Tohko[vars.counterС3Tohko].Item5,3))
+                if (settings[(vars.counterС3Tohko + 1 + 222).ToString()])
                 {
                     vars.counterС3Tohko++;
                     return true;
                 }
-            }
-            else
-            {
-                vars.counterС3Tohko++;
+                else
+                {
+                    vars.counterС3Tohko++;
+                }
             } 
         }
 
         // Shizuku
         if (vars.counterС3Shizuku <= 4)
         {
-            if (settings[(vars.counterС3Shizuku + 1 + 122).ToString()])
+            if (vars.roundY == Math.Round(vars.chapter3Shizuku[vars.counterС3Shizuku].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Shizuku[vars.counterС3Shizuku].Item4,3) && vars.roundX == Math.Round(vars.chapter3Shizuku[vars.counterС3Shizuku].Item5,3))
             {
-                if (vars.roundY == Math.Round(vars.chapter3Shizuku[vars.counterС3Shizuku].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Shizuku[vars.counterС3Shizuku].Item4,3) && vars.roundX == Math.Round(vars.chapter3Shizuku[vars.counterС3Shizuku].Item5,3))
+                if (settings[(vars.counterС3Shizuku + 1 + 122).ToString()])
                 {
                     vars.counterС3Shizuku++;
                     return true;
                 }
+                else
+                {
+                    vars.counterС3Shizuku++;
+                }
             }
-            else
-            {
-                vars.counterС3Shizuku++;
-            } 
         }
 
         // Rin
         if (vars.counterС3Rin <= 4)
         {
-            if (settings[(vars.counterС3Rin + 1 + 322).ToString()])
+            if (vars.roundY == Math.Round(vars.chapter3Rin[vars.counterС3Rin].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Rin[vars.counterС3Rin].Item4,3) && vars.roundX == Math.Round(vars.chapter3Rin[vars.counterС3Rin].Item5,3))
             {
-                if (vars.roundY == Math.Round(vars.chapter3Rin[vars.counterС3Rin].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Rin[vars.counterС3Rin].Item4,3) && vars.roundX == Math.Round(vars.chapter3Rin[vars.counterС3Rin].Item5,3))
+                if (settings[(vars.counterС3Rin + 1 + 322).ToString()])
                 {
                     vars.counterС3Rin++;
                     return true;
                 }
+                else
+                {
+                    vars.counterС3Rin++;
+                }
             }
-            else
-            {
-                vars.counterС3Rin++;
-            } 
         }
 
         // Shion
-        if (vars.counterС3Shion <= 8)
+        if (vars.counterС3Shion <= 5)
         {
-            if (settings[(vars.counterС3Shion + 1 + 422).ToString()])
+            if (vars.roundY == Math.Round(vars.chapter3Shion[vars.counterС3Shion].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Shion[vars.counterС3Shion].Item4,3) && vars.roundX == Math.Round(vars.chapter3Shion[vars.counterС3Shion].Item5,3))
             {
-                if (vars.roundY == Math.Round(vars.chapter3Shion[vars.counterС3Shion].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Shion[vars.counterС3Shion].Item4,3) && vars.roundX == Math.Round(vars.chapter3Shion[vars.counterС3Shion].Item5,3))
+                if (settings[(vars.counterС3Shion + 1 + 422).ToString()])
                 {
                     vars.counterС3Shion++;
                     return true;
                 }
+                else
+                {
+                    vars.counterС3Shion++;
+                }
             }
-            else
+        }
+
+        // Shion. No stable position
+        if (vars.counterС3Shion > 5)
+        {
+            if ((Math.Round(vars.roundY,0) >= -1f && Math.Round(vars.roundY,0) <= 1f) && (Math.Round(vars.roundZ,0) >= 2f && Math.Round(vars.roundZ,0) <= 4f) && (Math.Round(vars.roundX,0) >= -11f && Math.Round(vars.roundX,0) <= -9f) && current.mapNumber == 16)
             {
-                vars.counterС3Shion++;
-            } 
-        }        
+                if (settings["429"])
+                {
+                    vars.counterС3Shion++;
+                    return true;
+                }
+                else
+                {
+                    vars.counterС3Shion++;
+                }
+            }
+
+            if ((Math.Round(vars.roundY,0) >= 1f && Math.Round(vars.roundY,0) <= 3f) && (Math.Round(vars.roundZ,0) >= 14f && Math.Round(vars.roundZ,0) <= 20f) && (Math.Round(vars.roundX,0) >= -165f && Math.Round(vars.roundX,0) <= -155f) && current.mapNumber == 5)
+            {
+                if (settings["430"])
+                {
+                    vars.counterС3Shion++;
+                    return true;
+                }
+                else
+                {
+                    vars.counterС3Shion++;
+                }
+            }
+            
+            if ((Math.Round(vars.roundY,0) >= 1f && Math.Round(vars.roundY,0) <= 3f) && (Math.Round(vars.roundZ,0) >= -20f && Math.Round(vars.roundZ,0) <= -5f) && (Math.Round(vars.roundX,0) >= 6f && Math.Round(vars.roundX,0) <= 12f) && current.mapNumber == 3)
+            {
+                if (settings["431"])
+                {
+                    vars.counterС3Shion++;
+                    return true;
+                }
+                else
+                {
+                    vars.counterС3Shion++;
+                }
+            }
+        }
     }
 
-    // Endings [Not recommended]
+    // Endings
     if (settings["28"] || settings["128"] || settings["228"] || settings["328"] || settings["432"])
     {
         if (vars.roundY == 1f && vars.roundZ == 0f && vars.roundX == 0f)
