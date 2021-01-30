@@ -171,7 +171,7 @@ startup
     settings.Add("430", true, "M30 - Stop the Akiba Freedom Fighters' Advances!", "chapter3_shion");
     settings.Add("431", true, "M31 - Secure Radio Kaikan!", "chapter3_shion");
     // Chapter 3 - Endings
-    settings.Add("endings", true, "Endings [Experiment]");
+    settings.Add("endings", true, "Endings [Does not work]");
     settings.Add("28", true, "M28 - Normal Ending - Off to the Final Battle", "endings");
     settings.Add("128", true, "M28 - Shizuku - Off to the Final Battle", "endings");
     settings.Add("228", true, "M28 - Tohko - Off to the Final Battle", "endings");
