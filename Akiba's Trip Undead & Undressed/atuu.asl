@@ -171,20 +171,23 @@ startup
     settings.Add("430", true, "M30 - Stop the Akiba Freedom Fighters' Advances!", "chapter3_shion");
     settings.Add("431", true, "M31 - Secure Radio Kaikan!", "chapter3_shion");
     // Chapter 3 - Endings
-    settings.Add("endings", true, "Endings [Does not work]");
+    settings.Add("endings", true, "Endings [Not recommended]");
     settings.Add("28", true, "M28 - Normal Ending - Off to the Final Battle", "endings");
     settings.Add("128", true, "M28 - Shizuku - Off to the Final Battle", "endings");
     settings.Add("228", true, "M28 - Tohko - Off to the Final Battle", "endings");
     settings.Add("328", true, "M28 - Rin - Off to the Final Battle", "endings");
     settings.Add("433", true, "M32 - Shion - Go to Radio Kaikan", "endings");
     // Train 500
-    settings.Add("502", true, "Leav Akihabara", "endings");
+    //settings.Add("502", true, "Leav Akihabara", "endings");
 
     // Variable for round position
     vars.roundY = 0;
 	vars.roundZ = 0;
     vars.roundX = 0;
+}
 
+init
+{
     // Main mission counters 
     vars.counterC1 = 0;
 	vars.counterC2 = 0;
@@ -194,7 +197,7 @@ startup
 	vars.counterС3Shion = 0;
 
     // Counter for sister missions
-	vars.counterSister = 0;
+	vars.counterSister = 0; 
 }
 
 update
@@ -344,17 +347,17 @@ split {
             {
                 vars.counterС3Shion++;
             } 
-        }
+        }        
+    }
 
-        // Endings [Not recommended ]
-        if (settings["28"] || settings["128"] || settings["228"] || settings["328"] || settings["432"])
+    // Endings [Not recommended]
+    if (settings["28"] || settings["128"] || settings["228"] || settings["328"] || settings["432"])
+    {
+        if (vars.roundY == 1f && vars.roundZ == 0f && vars.roundX == 0f)
         {
-            if (vars.roundY == 1f && vars.roundZ == 0f && vars.roundX == 0f && current.creditsStart == 111)
-            {
+            if (current.creditsStart != old.creditsStart) {
                 return true;
             }
         }
-        
     }
-      
 }

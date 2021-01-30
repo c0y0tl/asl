@@ -11,7 +11,7 @@ Supported mission:
 - [ ] Train Run
 
 Improved logic is required.  
-The addition of automatic start and stop is required.
+The addition of automatic start is required.
 
 ## Usage
 Download the script, add Control -> Scriptable Auto Splitter to your layout, open the layout settings, and point it to the file you downloaded. This is generally only used to test new scripts and normally shouldn't be used.
