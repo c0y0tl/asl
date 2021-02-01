@@ -1,15 +1,5 @@
 # Akiba's Trip: Undead & Undressed
 
-## Check 
-Supported mission:
-- [x] Normal Ending
-- [ ] Shizuku True Ending
-- [ ] Rin True Ending
-- [x] Tohko True Ending
-- [x] Shion True Ending
-- [x] Sister Ending
-- [x] Train Run
-
 ## Usage
 Download the script, add Control -> Scriptable Auto Splitter to your layout, open the layout settings, and point it to the file you downloaded. This is generally only used to test new scripts and normally shouldn't be used.
 
