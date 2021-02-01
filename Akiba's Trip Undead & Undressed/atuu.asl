@@ -22,97 +22,90 @@ startup
 {
     // chapter_
     // Item1: mission id in settings
-    // Item2: the map on which the mission ends 
-    // Item3: positionY character 
-    // Item4: positionZ character 
-    // Item4: positionX character 
+    // Item2: positionY character 
+    // Item2: positionZ character 
+    // Item3: positionX character 
 
     // Chapter 1
     // Same for all endings
-    vars.chapter1 = new Tuple<int, int, float, float, float>[]
+    vars.chapter1 = new Tuple<int, float, float, float>[]
     {
-        Tuple.Create(1, 14, 1.729497f, -2.678275f, 2.182908f),
-        Tuple.Create(2, 14, 1.44997f, -3.382344f, 6.325909f),
-        Tuple.Create(3, 14, 1.615439f, -7.485596f, 13.636044f), 
-        Tuple.Create(4, 14, 1.284996f, -6.429576f, 14.757700f),
-        Tuple.Create(5, 14, 1.273742f, -8.754382f, 13.374955f),
-        Tuple.Create(6, 4, 1.604571f, -8.925579f, -118.675133f),
-        Tuple.Create(7, 14, 1.434686f, -5.191771f, 9.622315f),
-        Tuple.Create(8, 14, 1.526805f, -6.715621f, 13.143861f),
-        Tuple.Create(9, 14, 1.507847f, -6.404016f,	15.007300f),
-        Tuple.Create(10, 14, 1.178108f, -3.251970f, 9.506982f),
-        Tuple.Create(11, 3, 1.354699f, 27.982529f, 8.312622f),
-        Tuple.Create(12, 9, 1.179444f, -1.225575f, -36.363506f),
-        Tuple.Create(13, 2, 1.340432f, 43.361782f, -75.738457f),    
+        Tuple.Create(1, 1.729497f, -2.678275f, 2.182908f),
+        Tuple.Create(2, 1.44997f, -3.382344f, 6.325909f),
+        Tuple.Create(3, 1.615439f, -7.485596f, 13.636044f), 
+        Tuple.Create(4, 1.284996f, -6.429576f, 14.757700f),
+        Tuple.Create(5, 1.273742f, -8.754382f, 13.374955f),
+        Tuple.Create(6, 1.604571f, -8.925579f, -118.675133f),
+        Tuple.Create(7, 1.434686f, -5.191771f, 9.622315f),
+        Tuple.Create(8, 1.526805f, -6.715621f, 13.143861f),
+        Tuple.Create(9, 1.507847f, -6.404016f, 15.007300f),
+        Tuple.Create(10, 1.178108f, -3.251970f, 9.506982f),
+        Tuple.Create(11, 1.354699f, 27.982529f, 8.312622f),
+        Tuple.Create(12, 1.179444f, -1.225575f, -36.363506f),
+        Tuple.Create(13, 1.340432f, 43.361782f, -75.738457f),    
     };
 
     // Chapter 2
-    // Same for all endings
-    vars.chapter2 = new Tuple<int, int, float, float, float>[]
+    vars.chapter2 = new Tuple<int, float, float, float>[]
     {
-        Tuple.Create(14, 14, 1.753968f, -3.575703f, 12.967361f),
-        Tuple.Create(15, 14, 1.403322f, -3.024755f, 2.366887f),
-        Tuple.Create(16, 14, 1.903178f, -5.590683f, 11.821987f),
-        Tuple.Create(17, 14, 1.442598f, -2.954975f, 7.310930f),
-        Tuple.Create(18, 14, 1.555321f, -5.148322f, 13.262603f),
-        Tuple.Create(19, 14, 1.459551f, -6.631887f, 13.373309f),
-        Tuple.Create(20, 14, 1.474003f, -7.645730f, 10.132676f),
-        Tuple.Create(21, 12, 1.173435f,	15.427427f,	-39.462936f),
-    };
-
-    // Chapter 2
-    // "To the Battle Arena where Zenya Amou Awaits!" different for all endings
-    vars.chapter2Zenya = new Tuple<int, int, float, float, float>[]
-    {
-        // Normal Ending, Tohko, Sister 
-        Tuple.Create(22, 14, 1.718277f, -8.39325f, 13.656679f),
+        Tuple.Create(14, 1.753968f, -3.575703f, 12.967361f),
+        Tuple.Create(15, 1.403322f, -3.024755f, 2.366887f),
+        Tuple.Create(16, 1.903178f, -5.590683f, 11.821987f),
+        Tuple.Create(17, 1.442598f, -2.954975f, 7.310930f),
+        Tuple.Create(18, 1.555321f, -5.148322f, 13.262603f),
+        Tuple.Create(19, 1.459551f, -6.631887f, 13.373309f),
+        Tuple.Create(20, 1.474003f, -7.645730f, 10.132676f),
+        Tuple.Create(21, 1.173435f,	15.427427f, -39.462936f),
+        // To the Battle Arena where Zenya Amou Awaits!
         // Shizuku
-        Tuple.Create(22, 14, 1.420989f, -8.703035f, 10.144214f),
+        Tuple.Create(22, 1.420989f, -8.703035f, 10.144214f),
+        // Tohko
+        Tuple.Create(22, 1.718277f, -8.39325f, 13.656679f),
         // Rin
-        Tuple.Create(22, 14, 1.620726f, -4.492122f, 14.412026f),
+        Tuple.Create(22, 1.620726f, -4.492122f, 14.412026f),
         // Shion
-        Tuple.Create(22, 14, 1.760053f, -5.100903f, 12.793765f),
+        Tuple.Create(22, 1.760053f, -5.100903f, 12.793765f),
     };
 
     // Chapter 3 - Shizuku 100
-    vars.chapter3Shizuku = new Tuple<int, int, float, float, float>[]
+    vars.chapter3Shizuku = new Tuple<int, float, float, float>[]
     {
-        Tuple.Create(123, 14, 1.521416f, -8.861973f, 12.929842f),
-        Tuple.Create(124, 14, 1.794408f, -5.758067f, 12.43737f),
-        Tuple.Create(125, 14, 1.550729f, -3.143151f, 1.906818f),
-        Tuple.Create(126, 14, 2.164646f, -5.215629f, 13.285363f),
-        Tuple.Create(127, 2, 1.124656f, 13.13219f, -69.59417f),
+        Tuple.Create(123, 1.521416f, -8.861973f, 12.929842f),
+        Tuple.Create(124, 1.794408f, -5.758067f, 12.43737f),
+        Tuple.Create(125, 1.550729f, -3.143151f, 1.906818f),
+        Tuple.Create(126, 2.164646f, -5.215629f, 13.285363f),
+        Tuple.Create(127, 1.124656f, 13.13219f, -69.59417f),
     };
 
     // Chapter 3 - Tohko 200
-    vars.chapter3Tohko = new Tuple<int, int, float, float, float>[]
+    vars.chapter3Tohko = new Tuple<int, float, float, float>[]
     {
-        Tuple.Create(223, 14, 1.548041f, -5.745729f, 12.256323f),
-        Tuple.Create(224, 14, 1.585566f, -5.567666f, 11.359394f),
-        Tuple.Create(225, 14, 1.42815f, -7.247728f, 9.722128f),
-        Tuple.Create(226, 14, 1.64619f, -5.567641f, 10.903448f),
-        Tuple.Create(227, 2, 1.124862f, 13.81955f, -69.386406f),
+        Tuple.Create(223, 1.548041f, -5.745729f, 12.256323f),
+        Tuple.Create(224, 1.585566f, -5.567666f, 11.359394f),
+        Tuple.Create(225, 1.42815f, -7.247728f, 9.722128f),
+        Tuple.Create(226, 1.64619f, -5.567641f, 10.903448f),
+        Tuple.Create(227, 1.124862f, 13.81955f, -69.386406f),
     };
 
     // Chapter 3 - Rin 300
-    vars.chapter3Rin = new Tuple<int, int, float, float, float>[]
+    vars.chapter3Rin = new Tuple<int, float, float, float>[]
     {
-        Tuple.Create(323, 14, 1.425153f, -9.590592f, 13.756587f),
-        Tuple.Create(324, 14, 1.918821f, -3.522397f, 7.151635f),
-        Tuple.Create(325, 14, 1.545065f, -5.712129f, 11.259362f),
-        Tuple.Create(326, 14, 1.961876f, -2.155976f, 12.904745f),
-        Tuple.Create(327, 2, 1.327725f, 13.811988f, -69.378403f),
+        Tuple.Create(323, 1.425153f, -9.590592f, 13.756587f),
+        Tuple.Create(324, 1.918821f, -3.522397f, 7.151635f),
+        Tuple.Create(325, 1.545065f, -5.712129f, 11.259362f),
+        Tuple.Create(326, 1.961876f, -2.155976f, 12.904745f),
+        Tuple.Create(327, 1.327725f, 13.811988f, -69.378403f),
     };
 
     // Chapter 3 - Shion 400
-    vars.chapter3Shion = new Tuple<int, int, float, float, float>[]
+    vars.chapter3Shion = new Tuple<int, float, float, float>[]
     {
-        Tuple.Create(423, 14, 1.282270f, -4.978224f, 9.561569f),
-        Tuple.Create(424, 13, 1.008330f, 60.626144f, 46.817780f),
-        Tuple.Create(425, 6, 1.502857f, -8.490373f, -61.773266f),
-        Tuple.Create(426, 17, 1.392580f, 7.410832f, 0.348735f),
-        Tuple.Create(427, 16, 1.307403f, 0.875389f, -17.276546f),
-        Tuple.Create(428, 19, 1.368003f, 31.868629f, -19.367922f),
+        Tuple.Create(423, 1.282270f, -4.978224f, 9.561569f),
+        Tuple.Create(424, 1.008330f, 60.626144f, 46.817780f),
+        Tuple.Create(425, 1.502857f, -8.490373f, -61.773266f),
+        Tuple.Create(426, 1.392580f, 7.410832f, 0.348735f),
+        Tuple.Create(427, 1.307403f, 0.875389f, -17.276546f),
+        Tuple.Create(428, 1.368003f, 31.868629f, -19.367922f),
     };
 
     // Settings
@@ -185,14 +178,14 @@ startup
 
     // Variable for round position
     vars.roundY = 0;
-	vars.roundZ = 0;
+    vars.roundZ = 0;
     vars.roundX = 0;
 }
 
 update
 {
     vars.roundY = Math.Round(current.positionY, 3);
-	vars.roundZ = Math.Round(current.positionZ, 3);
+    vars.roundZ = Math.Round(current.positionZ, 3);
     vars.roundX = Math.Round(current.positionX, 3);
 }
 
@@ -221,7 +214,7 @@ split {
         // Chapter 1
         for (int i = 0; i < vars.chapter1.Length; i++)
         {
-            if (settings[(i + 1).ToString()] == true && vars.roundY == Math.Round(vars.chapter1[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter1[i].Item4,3) && vars.roundX == Math.Round(vars.chapter1[i].Item5,3))
+            if (settings[(i + 1).ToString()] == true && vars.roundY == Math.Round(vars.chapter1[i].Item2,3) && vars.roundZ == Math.Round(vars.chapter1[i].Item3,3) && vars.roundX == Math.Round(vars.chapter1[i].Item4,3))
             {
                 return true;
             }
@@ -230,36 +223,7 @@ split {
         // Chapter 2 before "To the Battle Arena where Zenya Amou Awaits!"
         for (int i = 0; i < vars.chapter2.Length; i++)
         {
-            if (settings[(i + 1 + 13).ToString()] == true && vars.roundY == Math.Round(vars.chapter2[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter2[i].Item4,3) && vars.roundX == Math.Round(vars.chapter2[i].Item5,3))
-            {
-                return true;
-            }
-        }
-
-
-        // Chapter 2 "To the Battle Arena where Zenya Amou Awaits!"
-        if (settings["22"])
-        {
-            // Normal Ending, Tohko, Sister
-            if (vars.roundY == Math.Round(vars.chapter2Zenya[0].Item3,3) && vars.roundZ == Math.Round(vars.chapter2Zenya[0].Item4,3) && vars.roundX == Math.Round(vars.chapter2Zenya[0].Item5,3))
-            {
-                return true;
-            }
-
-            // Shizuku
-            if (vars.roundY == Math.Round(vars.chapter2Zenya[1].Item3,3) && vars.roundZ == Math.Round(vars.chapter2Zenya[1].Item4,3) && vars.roundX == Math.Round(vars.chapter2Zenya[1].Item5,3))
-            {
-                return true;
-            }
-
-            // Rin
-            if (vars.roundY == Math.Round(vars.chapter2Zenya[2].Item3,3) && vars.roundZ == Math.Round(vars.chapter2Zenya[2].Item4,3) && vars.roundX == Math.Round(vars.chapter2Zenya[2].Item5,3))
-            {
-                return true;
-            }
-
-            // Shion
-            if (vars.roundY == Math.Round(vars.chapter2Zenya[3].Item3,3) && vars.roundZ == Math.Round(vars.chapter2Zenya[3].Item4,3) && vars.roundX == Math.Round(vars.chapter2Zenya[3].Item5,3))
+            if (settings[(i + 14).ToString()] == true && vars.roundY == Math.Round(vars.chapter2[i].Item2,3) && vars.roundZ == Math.Round(vars.chapter2[i].Item3,3) && vars.roundX == Math.Round(vars.chapter2[i].Item4,3))
             {
                 return true;
             }
@@ -269,7 +233,7 @@ split {
         // Shizuku
         for (int i = 0; i < vars.chapter3Shizuku.Length; i++)
         {
-            if (settings[(i + 1 + 122).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Shizuku[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Shizuku[i].Item4,3) && vars.roundX == Math.Round(vars.chapter3Shizuku[i].Item5,3))
+            if (settings[(i + 123).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Shizuku[i].Item2,3) && vars.roundZ == Math.Round(vars.chapter3Shizuku[i].Item3,3) && vars.roundX == Math.Round(vars.chapter3Shizuku[i].Item4,3))
             {
                 return true;
             }
@@ -278,7 +242,7 @@ split {
         // Tohko
         for (int i = 0; i < vars.chapter3Tohko.Length; i++)
         {
-            if (settings[(i + 1 + 222).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Tohko[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Tohko[i].Item4,3) && vars.roundX == Math.Round(vars.chapter3Tohko[i].Item5,3))
+            if (settings[(i + 223).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Tohko[i].Item2,3) && vars.roundZ == Math.Round(vars.chapter3Tohko[i].Item3,3) && vars.roundX == Math.Round(vars.chapter3Tohko[i].Item4,3))
             {
                 return true;
             }
@@ -287,7 +251,7 @@ split {
         // Rin
         for (int i = 0; i < vars.chapter3Rin.Length; i++)
         {
-            if (settings[(i + 1 + 322).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Rin[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Rin[i].Item4,3) && vars.roundX == Math.Round(vars.chapter3Rin[i].Item5,3))
+            if (settings[(i + 323).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Rin[i].Item2,3) && vars.roundZ == Math.Round(vars.chapter3Rin[i].Item3,3) && vars.roundX == Math.Round(vars.chapter3Rin[i].Item4,3))
             {
                 return true;
             }
@@ -296,35 +260,26 @@ split {
         // Shion
         for (int i = 0; i < vars.chapter3Shion.Length; i++)
         {
-            if (settings[(i + 1 + 422).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Shion[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Shion[i].Item4,3) && vars.roundX == Math.Round(vars.chapter3Shion[i].Item5,3))
+            if (settings[(i + 423).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Shion[i].Item2,3) && vars.roundZ == Math.Round(vars.chapter3Shion[i].Item3,3) && vars.roundX == Math.Round(vars.chapter3Shion[i].Item4,3))
             {
                 return true;
             }
         }
 
-        // Shion (No stable position0
-        if ((vars.roundY >= -1f && vars.roundY <= 1f) && (vars.roundZ >= 2f && vars.roundZ <= 4f) && (vars.roundX >= -11f && vars.roundX <= -9f) && current.mapNumber == 16)
+        // Shion (No stable position)
+        if (settings["429"] == true && current.mapNumber == 16 && (vars.roundY >= -1f && vars.roundY <= 1f) && (vars.roundZ >= 2f && vars.roundZ <= 4f) && (vars.roundX >= -11f && vars.roundX <= -9f))
         {
-            if (settings["429"])
-            {
-                return true;
-            }
+            return true;
         }
 
-        if ((vars.roundY >= 1f && vars.roundY <= 3f) && (vars.roundZ >= 14f && vars.roundZ <= 20f) && (vars.roundX >= -165f && vars.roundX <= -155f) && current.mapNumber == 5)
+        if (settings["430"] == true && current.mapNumber == 5 && (vars.roundY >= 1f && vars.roundY <= 3f) && (vars.roundZ >= 14f && vars.roundZ <= 20f) && (vars.roundX >= -165f && vars.roundX <= -155f))
         {
-            if (settings["430"])
-            {
-                return true;
-            }
+            return true;
         }
         
-        if ((vars.roundY >= 1f && vars.roundY <= 3f) && (vars.roundZ >= -20f && vars.roundZ <= -5f) && (vars.roundX >= 6f && vars.roundX <= 12f) && current.mapNumber == 3)
+        if (settings["431"] == true && current.mapNumber == 3 && (vars.roundY >= 1f && vars.roundY <= 3f) && (vars.roundZ >= -20f && vars.roundZ <= -5f) && (vars.roundX >= 6f && vars.roundX <= 12f) && current.mapNumber == 3)
         {
-            if (settings["431"])
-            {
-                return true;
-            }
+            return true;
         }
         
     }
@@ -334,7 +289,7 @@ split {
     {
         if (vars.roundY == 1f && vars.roundZ == 0f && vars.roundX == 0f)
         {
-            return current.creditsStart != old.creditsStart
+            return current.creditsStart != old.creditsStart;
         }
     }
 }
