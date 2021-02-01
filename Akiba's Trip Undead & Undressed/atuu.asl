@@ -14,12 +14,19 @@ state("AkibaUU")
     // Changes the value to 111 when credits start
     int creditsStart: "AkibaUU.exe", 0x481500;
 
-    // End for Train Run
+    // Changes the value to 151 or 223 when leav Akihabara
     int trainEnd: "AkibaUU.exe", 0x4ACA64;
 }
 
 startup
 {
+    // chapter_
+    // Item1: mission id in settings
+    // Item2: the map on which the mission ends 
+    // Item3: positionY character 
+    // Item4: positionZ character 
+    // Item4: positionX character 
+
     // Chapter 1
     // Same for all endings
     vars.chapter1 = new Tuple<int, int, float, float, float>[]
@@ -171,29 +178,15 @@ startup
     settings.Add("431", false, "M31 - Secure Radio Kaikan!", "chapter3_shion");
     // Chapter 3 - Endings
     settings.Add("endings", true, "Endings");
-    settings.Add("28", true, "M28 - Normal Ending - Off to the Final Battle", "endings");
-    settings.Add("128", false, "M28 - Shizuku - Off to the Final Battle", "endings");
-    settings.Add("228", false, "M28 - Tohko - Off to the Final Battle", "endings");
-    settings.Add("328", false, "M28 - Rin - Off to the Final Battle", "endings");
+    settings.Add("28", true, "M28 - Shizuku, Tohko, Rin - Off to the Final Battle", "endings");
     settings.Add("432", false, "M32 - Shion - Go to Radio Kaikan", "endings");
     // Train 500
-    settings.Add("502", false, "Leav Akihabara", "endings");
+    settings.Add("500", false, "Leav Akihabara", "endings");
 
     // Variable for round position
     vars.roundY = 0;
 	vars.roundZ = 0;
     vars.roundX = 0;
-}
-
-init
-{
-    // Main mission counters 
-    vars.counterC1 = 0;
-	vars.counterC2 = 0;
-	vars.counterС3Shizuku = 0;
-	vars.counterС3Tohko = 0;
-	vars.counterС3Rin = 0;
-	vars.counterС3Shion = 0;
 }
 
 update
@@ -215,7 +208,7 @@ split {
     }
 
     // End Train Run
-    if (settings["502"])
+    if (settings["500"])
     {
         if (current.mapNumber == 1 && (current.trainEnd == 223 || current.trainEnd == 151)  && current.missionСounter == 0)
         {
@@ -226,38 +219,23 @@ split {
     if (current.missionСounter != old.missionСounter)
     {
         // Chapter 1
-        if (vars.counterC1 <= 12)
+        for (int i = 0; i < vars.chapter1.Length; i++)
         {
-            if (vars.roundY == Math.Round(vars.chapter1[vars.counterC1].Item3,3) && vars.roundZ == Math.Round(vars.chapter1[vars.counterC1].Item4,3) && vars.roundX == Math.Round(vars.chapter1[vars.counterC1].Item5,3))
+            if (settings[(i + 1).ToString()] == true && vars.roundY == Math.Round(vars.chapter1[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter1[i].Item4,3) && vars.roundX == Math.Round(vars.chapter1[i].Item5,3))
             {
-                if (settings[(vars.counterC1 + 1).ToString()])
-                {
-                    vars.counterC1++;
-                    return true;
-                }
-                else
-                {
-                    vars.counterC1++;
-                }
+                return true;
             }
         }
 
         // Chapter 2 before "To the Battle Arena where Zenya Amou Awaits!"
-        if (vars.counterC2 <= 7)
+        for (int i = 0; i < vars.chapter2.Length; i++)
         {
-            if (vars.roundY == Math.Round(vars.chapter2[vars.counterC2].Item3,3) && vars.roundZ == Math.Round(vars.chapter2[vars.counterC2].Item4,3) && vars.roundX == Math.Round(vars.chapter2[vars.counterC2].Item5,3))
+            if (settings[(i + 1 + 13).ToString()] == true && vars.roundY == Math.Round(vars.chapter2[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter2[i].Item4,3) && vars.roundX == Math.Round(vars.chapter2[i].Item5,3))
             {
-                if (settings[(vars.counterC2 + 1).ToString()])
-                {
-                    vars.counterC2++;
-                    return true;
-                }
-                else
-                {
-                    vars.counterC2++;
-                }
+                return true;
             }
         }
+
 
         // Chapter 2 "To the Battle Arena where Zenya Amou Awaits!"
         if (settings["22"])
@@ -288,126 +266,75 @@ split {
         }
 
         // Chapter 3
-        // Normal Ending, Tohko, Sister
-        if (vars.counterС3Tohko <= 4)
+        // Shizuku
+        for (int i = 0; i < vars.chapter3Shizuku.Length; i++)
         {
-            if (vars.roundY == Math.Round(vars.chapter3Tohko[vars.counterС3Tohko].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Tohko[vars.counterС3Tohko].Item4,3) && vars.roundX == Math.Round(vars.chapter3Tohko[vars.counterС3Tohko].Item5,3))
+            if (settings[(i + 1 + 122).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Shizuku[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Shizuku[i].Item4,3) && vars.roundX == Math.Round(vars.chapter3Shizuku[i].Item5,3))
             {
-                if (settings[(vars.counterС3Tohko + 1 + 222).ToString()])
-                {
-                    vars.counterС3Tohko++;
-                    return true;
-                }
-                else
-                {
-                    vars.counterС3Tohko++;
-                }
-            } 
+                return true;
+            }
         }
 
-        // Shizuku
-        if (vars.counterС3Shizuku <= 4)
+        // Tohko
+        for (int i = 0; i < vars.chapter3Tohko.Length; i++)
         {
-            if (vars.roundY == Math.Round(vars.chapter3Shizuku[vars.counterС3Shizuku].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Shizuku[vars.counterС3Shizuku].Item4,3) && vars.roundX == Math.Round(vars.chapter3Shizuku[vars.counterС3Shizuku].Item5,3))
+            if (settings[(i + 1 + 222).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Tohko[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Tohko[i].Item4,3) && vars.roundX == Math.Round(vars.chapter3Tohko[i].Item5,3))
             {
-                if (settings[(vars.counterС3Shizuku + 1 + 122).ToString()])
-                {
-                    vars.counterС3Shizuku++;
-                    return true;
-                }
-                else
-                {
-                    vars.counterС3Shizuku++;
-                }
+                return true;
             }
         }
 
         // Rin
-        if (vars.counterС3Rin <= 4)
+        for (int i = 0; i < vars.chapter3Rin.Length; i++)
         {
-            if (vars.roundY == Math.Round(vars.chapter3Rin[vars.counterС3Rin].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Rin[vars.counterС3Rin].Item4,3) && vars.roundX == Math.Round(vars.chapter3Rin[vars.counterС3Rin].Item5,3))
+            if (settings[(i + 1 + 322).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Rin[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Rin[i].Item4,3) && vars.roundX == Math.Round(vars.chapter3Rin[i].Item5,3))
             {
-                if (settings[(vars.counterС3Rin + 1 + 322).ToString()])
-                {
-                    vars.counterС3Rin++;
-                    return true;
-                }
-                else
-                {
-                    vars.counterС3Rin++;
-                }
+                return true;
             }
         }
 
         // Shion
-        if (vars.counterС3Shion <= 5)
+        for (int i = 0; i < vars.chapter3Shion.Length; i++)
         {
-            if (vars.roundY == Math.Round(vars.chapter3Shion[vars.counterС3Shion].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Shion[vars.counterС3Shion].Item4,3) && vars.roundX == Math.Round(vars.chapter3Shion[vars.counterС3Shion].Item5,3))
+            if (settings[(i + 1 + 422).ToString()] == true && vars.roundY == Math.Round(vars.chapter3Shion[i].Item3,3) && vars.roundZ == Math.Round(vars.chapter3Shion[i].Item4,3) && vars.roundX == Math.Round(vars.chapter3Shion[i].Item5,3))
             {
-                if (settings[(vars.counterС3Shion + 1 + 422).ToString()])
-                {
-                    vars.counterС3Shion++;
-                    return true;
-                }
-                else
-                {
-                    vars.counterС3Shion++;
-                }
+                return true;
             }
         }
 
-        // Shion. No stable position
-        if (vars.counterС3Shion > 5)
+        // Shion (No stable position0
+        if ((vars.roundY >= -1f && vars.roundY <= 1f) && (vars.roundZ >= 2f && vars.roundZ <= 4f) && (vars.roundX >= -11f && vars.roundX <= -9f) && current.mapNumber == 16)
         {
-            if ((Math.Round(vars.roundY,0) >= -1f && Math.Round(vars.roundY,0) <= 1f) && (Math.Round(vars.roundZ,0) >= 2f && Math.Round(vars.roundZ,0) <= 4f) && (Math.Round(vars.roundX,0) >= -11f && Math.Round(vars.roundX,0) <= -9f) && current.mapNumber == 16)
+            if (settings["429"])
             {
-                if (settings["429"])
-                {
-                    vars.counterС3Shion++;
-                    return true;
-                }
-                else
-                {
-                    vars.counterС3Shion++;
-                }
-            }
-
-            if ((Math.Round(vars.roundY,0) >= 1f && Math.Round(vars.roundY,0) <= 3f) && (Math.Round(vars.roundZ,0) >= 14f && Math.Round(vars.roundZ,0) <= 20f) && (Math.Round(vars.roundX,0) >= -165f && Math.Round(vars.roundX,0) <= -155f) && current.mapNumber == 5)
-            {
-                if (settings["430"])
-                {
-                    vars.counterС3Shion++;
-                    return true;
-                }
-                else
-                {
-                    vars.counterС3Shion++;
-                }
-            }
-            
-            if ((Math.Round(vars.roundY,0) >= 1f && Math.Round(vars.roundY,0) <= 3f) && (Math.Round(vars.roundZ,0) >= -20f && Math.Round(vars.roundZ,0) <= -5f) && (Math.Round(vars.roundX,0) >= 6f && Math.Round(vars.roundX,0) <= 12f) && current.mapNumber == 3)
-            {
-                if (settings["431"])
-                {
-                    vars.counterС3Shion++;
-                    return true;
-                }
-                else
-                {
-                    vars.counterС3Shion++;
-                }
+                return true;
             }
         }
+
+        if ((vars.roundY >= 1f && vars.roundY <= 3f) && (vars.roundZ >= 14f && vars.roundZ <= 20f) && (vars.roundX >= -165f && vars.roundX <= -155f) && current.mapNumber == 5)
+        {
+            if (settings["430"])
+            {
+                return true;
+            }
+        }
+        
+        if ((vars.roundY >= 1f && vars.roundY <= 3f) && (vars.roundZ >= -20f && vars.roundZ <= -5f) && (vars.roundX >= 6f && vars.roundX <= 12f) && current.mapNumber == 3)
+        {
+            if (settings["431"])
+            {
+                return true;
+            }
+        }
+        
     }
 
     // Endings
-    if (settings["28"] || settings["128"] || settings["228"] || settings["328"] || settings["432"])
+    if (settings["28"] || settings["432"])
     {
         if (vars.roundY == 1f && vars.roundZ == 0f && vars.roundX == 0f)
         {
-            if (current.creditsStart != old.creditsStart) {
-                return true;
-            }
+            return current.creditsStart != old.creditsStart
         }
     }
 }
