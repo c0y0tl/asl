@@ -321,11 +321,14 @@ split {
     }
 
     // Endings
-    if (settings["28"] || settings["432"])
+    if (settings["endings"])
     {
-        if (vars.roundY == 1f && vars.roundZ == 0f && vars.roundX == 0f)
+        if (settings["28"] || settings["432"])
         {
-            return current.creditsStart != old.creditsStart;
+            if (vars.roundY == 1f && vars.roundZ == 0f && vars.roundX == 0f && current.creditsStart == 111)
+            {
+                return current.creditsStart != old.creditsStart;
+            }
         }
     }
 }
