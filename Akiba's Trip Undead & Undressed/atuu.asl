@@ -102,11 +102,12 @@ startup
         Tuple.Create(327, 1.327725f, 13.811988f, -69.378403f),
     };
 
-    // Chapter 3 - Shion 400
+    // Chapter 3 - Shion 400[10652] -Y: 1,008646 -Z: 60,62649 -X: 46,81832 
+
     vars.chapter3Shion = new Tuple<int, float, float, float>[]
     {
         Tuple.Create(423, 1.282270f, -4.978224f, 9.561569f),
-        Tuple.Create(424, 1.008330f, 60.626144f, 46.817780f),
+        Tuple.Create(424, 0f, 0f, 0f),
         Tuple.Create(425, 1.502857f, -8.490373f, -61.773266f),
         Tuple.Create(426, 1.392580f, 7.410832f, 0.348735f),
         Tuple.Create(427, 1.307403f, 0.875389f, -17.276546f),
@@ -297,6 +298,11 @@ split {
             }
 
             // No stable position
+            if (settings["424"] == true && current.mapNumber == 13 && (vars.roundY >= 1f && vars.roundY <= 2f) && (vars.roundZ >= 60f && vars.roundZ <= 61f) && (vars.roundX >= 46f && vars.roundX <= 47f))
+            {
+                return true;
+            }
+
             if (settings["429"] == true && current.mapNumber == 16 && (vars.roundY >= -1f && vars.roundY <= 1f) && (vars.roundZ >= 2f && vars.roundZ <= 4f) && (vars.roundX >= -11f && vars.roundX <= -9f))
             {
                 return true;
