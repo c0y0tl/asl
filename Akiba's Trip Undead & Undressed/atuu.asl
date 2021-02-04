@@ -27,7 +27,6 @@ startup
     // Item3: X position 
 
     // Chapter 1
-    // Same for all endings
     vars.chapter1 = new Tuple<int, float, float, float>[]
     {
         Tuple.Create(1, 1.729497f, -2.678275f, 2.182908f),
@@ -72,7 +71,6 @@ startup
     };
 
     // Chapter 3 - Shizuku 100
-
     vars.chapter3Shizuku = new Tuple<int, float, float, float>[]
     {
         Tuple.Create(123, 1.521416f, -8.861973f, 12.929842f),
@@ -102,8 +100,7 @@ startup
         Tuple.Create(327, 1.327725f, 13.811988f, -69.378403f),
     };
 
-    // Chapter 3 - Shion 400[10652] -Y: 1,008646 -Z: 60,62649 -X: 46,81832 
-
+    // Chapter 3 - Shion 400
     vars.chapter3Shion = new Tuple<int, float, float, float>[]
     {
         Tuple.Create(423, 1.282270f, -4.978224f, 9.561569f),
@@ -175,7 +172,7 @@ startup
     settings.Add("429", false, "M29 - Off to Confront Souga Kagutsuki!", "chapter3Shion");
     settings.Add("430", false, "M30 - Stop the Akiba Freedom Fighters' Advances!", "chapter3Shion");
     settings.Add("431", false, "M31 - Secure Radio Kaikan!", "chapter3Shion");
-    // Chapter 3 - Endings
+    // Endings
     settings.Add("endings", true, "Endings");
     settings.Add("28", true, "M28 - Shizuku, Tohko, Rin - Off to the Final Battle", "endings");
     settings.Add("432", false, "M32 - Shion - Go to Radio Kaikan", "endings");
@@ -240,6 +237,7 @@ split {
                 }
             }
 
+            // To the Battle Arena where Zenya Amou Awaits!
             for (int i = 0; i < vars.chapter2Zenya.Length; i++)
             {
                 if (settings["22"] == true && vars.roundY == Math.Round(vars.chapter2Zenya[i].Item2,3) && vars.roundZ == Math.Round(vars.chapter2Zenya[i].Item3,3) && vars.roundX == Math.Round(vars.chapter2Zenya[i].Item4,3))
