@@ -1,5 +1,5 @@
 # Akiba's Trip: Undead & Undressed
-Auto Splitter for Akiba's Trip: Undead & Undressed
+Autosplitter for Akiba's Trip: Undead & Undressed
 
 ## Usage
 * Right click  on the LiveSplit > Edit Splits...
