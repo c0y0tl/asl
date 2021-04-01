@@ -23,4 +23,4 @@ Autosplitter for Akiba's Trip: Undead & Undressed
 * [Train Run](https://github.com/C0Y0TL/asl/blob/main/Akiba's%20Trip%20Undead%20%26%20Undressed/lss/train_run.lss)
 
 ## Credits
-[COYOTL](https://www.twitch.tv/c0y0tl)
+[C0Y0TL](https://www.twitch.tv/c0y0tl)
