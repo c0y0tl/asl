@@ -8,4 +8,4 @@ Autosplitter for The Darkness II
 * Select missions to split
 
 ## Credits
-[COYOTL](https://www.twitch.tv/c0y0tl)
+[C0Y0TL](https://www.twitch.tv/c0y0tl)
