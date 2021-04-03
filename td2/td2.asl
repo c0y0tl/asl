@@ -1,41 +1,34 @@
 state("DarknessII")
 {
-    // Current level id
     int level: "DarknessII.exe", 0xD0A8CC;
-    // Counter, increases when new level loaded
-    int levelLoaded: "DarknessII.exe", 0xCDE0E0;
 }
 
 update
 {
-	print("TD2" + " " + "Current level: " + current.level + " " + "Old level: " + old.level);
-	print("TD2" + " " + "Current levelLoaded: " + current.levelLoaded + " " + "Old levelLoaded: " + old.levelLoaded);
+	print("TD2" + " " + "Current Level: " + current.level + " " + "Old Level: " + old.level);
 }
 
 startup
 {
-    // levels
-    // Item1 - mission name, use to check the settings 
-    // Item2 - level id for last level for the current mission
-    vars.levels = new Tuple<string, int>[]
+    vars.levels = new Tuple<string, int, int>[]
     {
-        Tuple.Create("dinnerout", 742),
-        Tuple.Create("payback", 362),
-        Tuple.Create("thefamily", 1350),
-        Tuple.Create("qanda", 896),
-        Tuple.Create("morequestionsthananswers", 1388),
-        Tuple.Create("strongsilenttype", 1344),
-        Tuple.Create("dealwiththedevil", 1855),
-        Tuple.Create("homeinvasion", 726),
-        Tuple.Create("theawakening", 1130),
-        Tuple.Create("endofanera", 1107),
-        Tuple.Create("sayinggoodbye", 1568),
-        Tuple.Create("onthehunt", 1357),
-        Tuple.Create("funandgames", 901),
-        Tuple.Create("strangepeople", 1131),
-        Tuple.Create("ratinamaze", 1092),
-        Tuple.Create("homecoming", 1176),
-        Tuple.Create("laststand", 333),
+        Tuple.Create("dinnerout", 742, 1080),
+        Tuple.Create("payback", 362, 4),
+        Tuple.Create("thefamily", 1350, 3),
+        Tuple.Create("qanda", 896, 4),
+        Tuple.Create("morequestionsthananswers", 1388, 3),
+        Tuple.Create("strongsilenttype", 1344, 471),
+        Tuple.Create("dealwiththedevil", 1855, 2),
+        Tuple.Create("homeinvasion", 726, 1130),
+        Tuple.Create("theawakening", 1130, 3),
+        Tuple.Create("endofanera", 1107, 2),
+        Tuple.Create("sayinggoodbye", 1568, 4),
+        Tuple.Create("onthehunt", 1357, 3),
+        Tuple.Create("funandgames", 901, 3),
+        Tuple.Create("strangepeople", 1131, 358),
+        Tuple.Create("ratinamaze", 1092, 1176),
+        Tuple.Create("homecoming", 1176, 333),
+        Tuple.Create("laststand", 333, 1120),
     };
 
     settings.Add("td2", true, "The Darkness II");
@@ -65,7 +58,10 @@ split
     {
         for (int i = 0; i < vars.levels.Length; i++)
         {
-        	if (settings[vars.levels[i].Item1] == true && old.level == vars.levels[i].Item2 && current.levelLoaded != old.levelLoaded)
+            // Sometimes when changing a level, the current level is zero (loading)
+            // for a very short moment, it probably depends on the loading speed
+            // for this added || (or)
+        	if (settings[vars.levels[i].Item1] == true && old.level == vars.levels[i].Item2 && (current.level == vars.levels[i].Item3 || current.level == 0))
 			{
 				return true;
 			}
