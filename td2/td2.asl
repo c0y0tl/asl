@@ -4,6 +4,15 @@ state("DarknessII")
     int level: "DarknessII.exe", 0xD0A8CC;
     // Counter, increases when new level loaded
     int levelLoaded: "DarknessII.exe", 0xCDE0E0;
+    // Loading
+    // 0 - loading
+    // 1 - in game
+    int loading: "DarknessII.exe", 0xD02454;
+    // Menu
+    // 4 - menu, pause
+    // 0 - loading
+    int menu: "DarknessII.exe", 0xCD863C;
+
 }
 
 update
@@ -72,4 +81,9 @@ split
         }
     }
 
+}
+
+isLoading
+{
+    return current.loading == 0 && current.menu == 0;
 }
