@@ -119,13 +119,13 @@ split
 
     if (settings["level2"] && current.level == 3 && (old.level == 2 || old.level == 0) && vars.visitedLevels[1] == false)
     {
-        vars.visitedLevels[1] = false;
+        vars.visitedLevels[1] = true;
         return true;
     }
 
     if (settings["level2m"] && current.level == 3 && (old.level == 2 || old.level == 0) && current.shockArray[3] == 1 && vars.visitedLevels[2] == false)
     {
-        vars.visitedLevels[2] = false;
+        vars.visitedLevels[2] = true;
         return true;
     }
 
