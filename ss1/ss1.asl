@@ -78,7 +78,7 @@ startup
     settings.Add("level9", false, "Bridge (9 > Shodan)");
     settings.SetToolTip("level9", "Split after going to the Shodan. No mission check.");
 
-    settings.Add("level10", false, "Shodan");
+    //settings.Add("level10", false, "Shodan");
 
     // Visited levels
     vars.visitedLevels = new bool[11];
