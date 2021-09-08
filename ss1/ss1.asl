@@ -16,12 +16,6 @@ state("sekhmet_x64")
     // 9  - LEVEL 9 (Bridge)
     // 10 - Shodan
     int level: "sekhmet_x64.exe", 0x9986CC;
-
-    // cutscene (work slowly)
-    // 0 - Death
-    // 1 - Intro
-    // 2 - Ending
-    int cutscene: "sekhmet_x64.exe", 0x9998FB;
     
     // menuState
     // 3 - Menu
@@ -42,7 +36,7 @@ state("sekhmet_x64")
     // Level 6: 65+4+8 Activate G1
     // Level 6: 65+4+8+16 Activate G2
     // Level 6: 65+4+8+16+128 Launch grove
-    byte255 shockArray: "sekhmet_x64.exe", 0xDD7F26;
+    byte4 shockArray: "sekhmet_x64.exe", 0xDD7F26;
 }
 
 startup
@@ -79,26 +73,11 @@ startup
     settings.SetToolTip("level9", "Split after going to the Shodan. No mission check.");
 
     //settings.Add("level10", false, "Shodan");
-
-    // Visited levels
-    vars.visitedLevels = new bool[11];
-
-    vars.OnReset = (LiveSplit.Model.Input.EventHandlerT<TimerPhase>) ((s, e) => {
-        for (int i = 0; i < vars.visitedLevels.Length; i++)
-        {
-            vars.visitedLevels[i] = false;
-        }
-    });
-    
-    timer.OnReset += vars.OnReset;
 }
 
 update
 {
 	print("SS1 | " + "Current level: " + current.level + " | " + "Old level: " + old.level);
-	print("SS1 | " + "Current menuState: " + current.menuState + " | " + "Old menuState: " + old.menuState);
-	print("SS1 | " + "Current shockArray[3]: " + current.shockArray[3] + " | " + "Old shockArray[3]: " + old.shockArray[3]);
-	print("SS1 | " + "Current shockArray[2]: " + current.shockArray[2] + " | " + "Old shockArray[2]: " + old.shockArray[2]);
 }
 
 reset
@@ -111,69 +90,53 @@ reset
 
 split
 {
-    if (settings["level1"] && current.level == 2 && old.level == 1 && vars.visitedLevels[0] == false)
+    if (settings["level1"] && current.level == 2 && old.level == 1)
     {
-        vars.visitedLevels[0] = true;
         return true;
     }
 
-    if (settings["level2"] && current.level == 3 && (old.level == 2 || old.level == 0) && vars.visitedLevels[1] == false)
+    if (settings["level2"] && current.level == 3 && (old.level == 2 || old.level == 0))
     {
-        vars.visitedLevels[1] = true;
         return true;
     }
 
-    if (settings["level2m"] && current.level == 3 && (old.level == 2 || old.level == 0) && current.shockArray[3] == 1 && vars.visitedLevels[2] == false)
+    if (settings["level2m"] && current.level == 3 && (old.level == 2 || old.level == 0))
     {
-        vars.visitedLevels[2] = true;
         return true;
     }
 
-    if (settings["level3"] && current.level == 6 && old.level == 3 && vars.visitedLevels[3] == false)
+    if (settings["level3"] && current.level == 6 && old.level == 3)
     {
-        vars.visitedLevels[3] = true;
         return true;
     }
 
-    if (settings["level3m"] && current.level == 6 && old.level == 3 && current.shockArray[3] == 65 && vars.visitedLevels[4]== false)
+    if (settings["level3m"] && current.level == 6 && old.level == 3 && current.shockArray[3] == 65)
     {
-        vars.visitedLevels[4] = true;
         return true;
     }
 
-    if (settings["level6"] && current.level == 7 && old.level == 6 && vars.visitedLevels[5] == false)
+    if (settings["level6"] && current.level == 7 && old.level == 6)
     {
-        vars.visitedLevels[5] = true;
         return true;
     }
 
-    if (settings["level6m"] && current.level == 7 && old.level == 6 && current.shockArray[3] == 221 && vars.visitedLevels[6] == false)
+    if (settings["level6m"] && current.level == 7 && old.level == 6 && current.shockArray[3] == 221)
     {
-        vars.visitedLevels[6] = true;
         return true;
     }
 
-    if (settings["level7"] && current.level == 8 && old.level == 7 && vars.visitedLevels[7] == false)
+    if (settings["level7"] && current.level == 8 && old.level == 7)
     {
-        vars.visitedLevels[7] = true;
         return true;
     }
 
-    if (settings["level8"] && current.level == 9 && old.level == 8 && vars.visitedLevels[8] == false)
+    if (settings["level8"] && current.level == 9 && old.level == 8)
     {
-        vars.visitedLevels[8] = true;
         return true;
     }
 
-    if (settings["level9"] && current.level == 10 && old.level == 9 && vars.visitedLevels[9] == false)
+    if (settings["level9"] && current.level == 10 && old.level == 9)
     {
-        vars.visitedLevels[9] = true;
         return true;
     }
-        
-}
-
-exit
-{
-    timer.OnReset -= vars.OnReset;
 }
