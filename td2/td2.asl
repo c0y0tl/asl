@@ -11,8 +11,6 @@ update
 {
 	print("TD2" + " " + "Current level: " + current.level + " " + "Old level: " + old.level);
 	print("TD2" + " " + "Current levelLoaded: " + current.levelLoaded + " " + "Old levelLoaded: " + old.levelLoaded);
-
-
 }
 
 startup
