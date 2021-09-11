@@ -3,7 +3,6 @@ Autosplitter for The Darkness II
 
 ## Remarks
 Don't support last split.
-Load Remover is a test function.
 
 ## Usage
 * Download the script.

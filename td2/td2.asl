@@ -4,14 +4,6 @@ state("DarknessII")
     int level: "DarknessII.exe", 0xD0A8CC;
     // Counter, increases when new level loaded
     int levelLoaded: "DarknessII.exe", 0xCDE0E0;
-    // Loading
-    // 0 - loading
-    // 1 - in game
-    int loading: "DarknessII.exe", 0xD02454;
-    // Menu
-    // 4 - menu, pause
-    // 0 - loading
-    int menu: "DarknessII.exe", 0xCD863C;
 
 }
 
@@ -19,9 +11,8 @@ update
 {
 	print("TD2" + " " + "Current level: " + current.level + " " + "Old level: " + old.level);
 	print("TD2" + " " + "Current levelLoaded: " + current.levelLoaded + " " + "Old levelLoaded: " + old.levelLoaded);
-    if (current.loading == 0 && current.menu == 0) {
-        print("LOADING...");
-    }
+
+
 }
 
 startup
@@ -48,6 +39,7 @@ startup
         Tuple.Create("ratinamaze", 1092),
         Tuple.Create("homecoming", 1176),
         Tuple.Create("laststand", 333),
+        // Tuple.Create("revelations", 872),
     };
 
     settings.Add("td2", true, "The Darkness II");
@@ -68,7 +60,7 @@ startup
     settings.Add("ratinamaze", true, "Rat in a Maze", "td2");
     settings.Add("homecoming", true, "Homecoming", "td2");
     settings.Add("laststand", true, "Last Stand", "td2");
-    //settings.Add("revelations", true, "Revelations", "td2");
+    settings.Add("revelations", true, "Revelations", "td2");
 }
 
 split 
@@ -84,9 +76,4 @@ split
         }
     }
 
-}
-
-isLoading
-{
-    return current.loading == 0 && current.menu == 0;
 }
