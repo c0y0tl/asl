@@ -100,7 +100,7 @@ split
         return true;
     }
 
-    if (settings["level2m"] && current.level == 3 && (old.level == 2 || old.level == 0))
+    if (settings["level2m"] && current.level == 3 && (old.level == 2 || old.level == 0) && current.shockArray[3] == 1)
     {
         return true;
     }
