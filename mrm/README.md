@@ -1,5 +1,5 @@
 # Muppet RaceMania
-Autosplitter for Muppet RaceMania
+Autosplitter and load remover for Muppet RaceMania
 
 ## Usage
 * Download the script.

@@ -12,12 +12,17 @@ state("ePSXe")
 
 startup
 {
+    settings.Add("loadremover", true, "Load remover");
     settings.Add("split_ab", true, "Autosplitter for Tournaments (League A+B, Solo)");
 }
 
 isLoading
 {
-    return current.loading == 1;
+    if (settings["loadremover"])
+    {
+        return current.loading == 1;
+    }
+    
 }
 
 split
