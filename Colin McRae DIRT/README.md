@@ -8,7 +8,7 @@ AutoSplitter and Load Remover for Colin McRae: DIRT
 * Select missions to split
 
 ## Splits
-* [Career Any%](lss/normal_ending.lss)
+* [Career Any%](lss/Career Any%.lss)
 
 ## Credits
 [c0y0tl](https://www.twitch.tv/c0y0tl)
