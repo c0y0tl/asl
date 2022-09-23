@@ -1,5 +1,5 @@
 # Colin McRae: DIRT
-AutoSplitter and Load Remover for Colin McRae: DIRT
+AutoSplitter and Load Remover for Colin McRae: DIRT. Split is triggered after crossing the finish line.
 
 ### Usage
 * [Download](https://raw.githubusercontent.com/c0y0tl/asl/main/Colin%20McRae%20DIRT/dirt.asl) the script.
