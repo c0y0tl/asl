@@ -5,10 +5,9 @@ AutoSplitter and Load Remover for Colin McRae: DIRT
 * [Download](https://raw.githubusercontent.com/c0y0tl/asl/main/Colin%20McRae%20DIRT/dirt.asl) the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
 * Open the layout settings, and point it to the file you downloaded.
-* Select missions to split
 
 ## Splits
-* [Career Any%](lss/career_any.lss)
+* [Career Any%](https://raw.githubusercontent.com/c0y0tl/asl/main/Colin%20McRae%20DIRT/lss/career_any.lss)
 
 ## Credits
 [c0y0tl](https://www.twitch.tv/c0y0tl)
