@@ -1,5 +1,5 @@
 # Gedonia
-Autosplitter and load remover for Gedonia
+Load remover for Gedonia
 
 ## Usage
 * [Download](https://raw.githubusercontent.com/c0y0tl/asl/main/gedonia/gedonia.asl) the script.
