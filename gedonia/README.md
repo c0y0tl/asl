@@ -8,5 +8,8 @@ Load remover and Autosplitter for Gedonia
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
 * Open the layout settings, and point it to the file you downloaded.
 
+## Problem Solving
+* If the Autosplitter function does not work, try restarting LiveSplit
+
 ## Credits
 Based off [ash-help](https://github.com/just-ero/asl-help) library by Ero.
