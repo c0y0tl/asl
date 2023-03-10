@@ -4,6 +4,7 @@ state("Gedonia")
   // 0 - loading screen
   // 1 - in game
   byte loadingScreen: "UnityPlayer.dll", 0x017A5548, 0xD0, 0x8, 0x148, 0x6C0, 0x0, 0x998, 0x28, 0x18, 0x160;
+  byte loadingScreen2: "UnityPlayer.dll", 0x0177ED40, 0x1D0, 0x48, 0x68, 0xC8, 0x968;
 }
 
 startup
@@ -71,7 +72,7 @@ update
 
 isLoading
 {
-  if (current.loadingScreen != 1)
+  if (current.loadingScreen != 1 || current.loadingScreen2 != 1)
   {
     return true;
   }
