@@ -7,6 +7,8 @@ Load remover and Autosplitter for Gedonia.
 * [Download](https://raw.githubusercontent.com/c0y0tl/asl/main/gedonia/gedonia.asl) the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
 * Open the layout settings, and point it to the file you downloaded.
+* Select Levels, Mounts to split (If needed)
+* Right click on LiveSplit > Compare Against > Game Time
 
 ## Problem Solving
 * If the Autosplitter function does not work, try restarting LiveSplit.
