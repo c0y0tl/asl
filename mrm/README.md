@@ -1,5 +1,5 @@
 # Muppet RaceMania
-Autosplitter and load remover for Muppet RaceMania
+Autosplitter and load remover for Muppet RaceMania (ePSXe v2.0.5)
 
 ## Usage
 * [Download](https://raw.githubusercontent.com/c0y0tl/asl/main/mrm/mrm.asl) the script.
