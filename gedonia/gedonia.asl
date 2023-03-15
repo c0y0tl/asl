@@ -4,6 +4,7 @@ state("Gedonia")
   // 0 - loading screen
   // 1 - in game
   byte loadingScreen: "UnityPlayer.dll", 0x017A5548, 0xD0, 0x8, 0x148, 0x6C0, 0x0, 0x998, 0x28, 0x18, 0x160;
+  byte loadingScreen2: "UnityPlayer.dll", 0x0177ED40, 0x1D0, 0x48, 0x68, 0xC8, 0x968;
 }
 
 startup
@@ -37,6 +38,12 @@ startup
 	{
 		settings.Add(md.Item1.ToString() + "M", false, md.Item2, "Mounts");
   }
+
+  // Story settings
+  settings.Add("Story", false, "Story");
+  settings.Add("DarkGod", false, "Defeated Dark god", "Story");
+  settings.Add("LightGod", false, "Defeated God of light", "Story");
+  settings.Add("End", false, "Ending - Return to your village", "Story");
 }
 
 init
@@ -57,6 +64,12 @@ init
     // [6] - Innoroth
     // [7] - Az'gor
     vars.Helper["mounts"] = mono.MakeArray<bool>("GameManager", "instance", "availableMounts");
+
+    // mainStory
+    // -1 - On cutscenes
+    // 34 - Defeated Dark god
+    // 36 - Defeated God of light (change after cutscene)
+    vars.Helper["mainStory"] = mono.Make<int>("GameManager", "instance", "mainStoryProgress");
     return true;
   });
 
@@ -71,7 +84,7 @@ update
 
 isLoading
 {
-  if (current.loadingScreen != 1)
+  if (current.loadingScreen != 1 || current.loadingScreen2 != 1)
   {
     return true;
   }
@@ -83,6 +96,21 @@ isLoading
 
 split
 {
+  if (settings["DarkGod"] == true && current.mainStory == 34 && old.mainStory != current.mainStory && current.loadingScreen == 1)
+  {
+    return true;
+  }
+
+  if (settings["LightGod"] == true && current.mainStory == 36 && old.mainStory == 35 && current.loadingScreen == 1)
+  {
+    return true;
+  }
+
+  if (settings["End"] == true && current.mainStory == -1 && old.mainStory == 36 && current.loadingScreen == 1)
+  {
+    return true;
+  }
+
   for (int i = 2; i <= 70; i++)
   {
     if (settings[i.ToString() + "L"] == true && current.level == i)
