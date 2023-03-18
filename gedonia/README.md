@@ -12,6 +12,7 @@ Load remover and Autosplitter for Gedonia.
 
 ## Problem Solving
 * If the Autosplitter function does not work, try restarting LiveSplit.
+* If the Autosplitter function does not work, try start new game and after loading launch LiveSplit.
 
 ## Credits
 Based off [ash-help](https://github.com/just-ero/asl-help) library by Ero.
