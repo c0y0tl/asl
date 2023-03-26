@@ -1,10 +1,5 @@
 state("Gedonia")
-{
-  // loadingScreen
-  // 0 - loading screen
-  // 1 - in game
-  byte loadingScreen: "UnityPlayer.dll", 0x017A5548, 0xD0, 0x8, 0x148, 0x6C0, 0x0, 0x998, 0x28, 0x18, 0x160;
-}
+{}
 
 startup
 {
@@ -78,11 +73,6 @@ init
 onStart
 {
   vars.completedSplits.Clear();
-}
-
-isLoading
-{
-  return current.loadingScreen != 1;
 }
 
 split
