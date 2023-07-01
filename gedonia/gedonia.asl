@@ -66,15 +66,8 @@ init
     // 34 - Defeated Dark god
     // 36 - Defeated God of light (change after cutscene)
     vars.Helper["mainStory"] = mono.Make<int>("GameManager", "instance", "mainStoryProgress");
-
-    vars.Helper["testVar"] = mono.MakeArray<int>("UIPanel", "list");
     return true;
   });
-}
-
-update
-{
-  print("GDN " + current.testVar[current.testVar.Length - 1]);
 }
 
 onStart
