@@ -7,7 +7,7 @@ startup
 
   // Levels settings
   settings.Add("Levels", false, "Levels");
-  for (int i = 2; i <= 70; i++)
+  for (int i = 2; i <= 80; i++)
   {
     settings.Add(i.ToString() + "L", false, i.ToString(), "Levels");
   }
@@ -66,8 +66,15 @@ init
     // 34 - Defeated Dark god
     // 36 - Defeated God of light (change after cutscene)
     vars.Helper["mainStory"] = mono.Make<int>("GameManager", "instance", "mainStoryProgress");
+
+    vars.Helper["testVar"] = mono.MakeArray<int>("UIPanel", "list");
     return true;
   });
+}
+
+update
+{
+  print("GDN " + current.testVar[current.testVar.Length - 1]);
 }
 
 onStart
