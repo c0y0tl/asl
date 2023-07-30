@@ -1,8 +1,5 @@
-# System Shock: Enhanced Edition
-Autosplitter for System Shock: Enhanced Edition (Source Port)
-
-## Remarks
-Don't support last split.
+# System Shock Remake
+Autosplitter and Load Remover for System Shock (Remake)
 
 ## Usage
 * Download the script.
@@ -11,4 +8,4 @@ Don't support last split.
 * Select levels to split.
 
 ## Credits
-[c0y0tl](https://www.twitch.tv/c0y0tl)
+Based off [Micrologist](https://www.twitch.tv/micrologist) asl script.

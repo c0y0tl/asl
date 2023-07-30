@@ -1,8 +1,9 @@
-# System Shock: Enhanced Edition
-Autosplitter for System Shock: Enhanced Edition (Source Port)
+# System Shock Remake
+Autosplitter and Load Remover for System Shock 2
 
-## Remarks
-Don't support last split.
+## Remark
+* Requires version Patch Final 2.4 (Steam)
+* For the last split, you need to have the `Cs3.avi` file in the `Data\cutscenes` folder 
 
 ## Usage
 * Download the script.
