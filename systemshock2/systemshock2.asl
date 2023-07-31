@@ -61,7 +61,7 @@ startup
 
 isLoading
 {
-    if (current.gameState1 == 0 && current.gameState2 == 8 && current.gameState3 == 10 && current.isLoading == 0)
+    if (current.gameState1 == 0 && (current.gameState2 == 8 || current.gameState3 == 10) || current.isLoading == 0)
     {
         return true;
     }
