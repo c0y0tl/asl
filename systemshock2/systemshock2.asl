@@ -2,12 +2,6 @@ state("Shock2")
 {
     // Map name
     string255 mapName: "Shock2.exe", 0x4506C8;
-    
-    // Loading state
-    // Does not work correctly when the game is launched for the first time
-    // 0  - Loading
-    // >0 - In Game
-    int isLoading: "Shock2.exe", 0x54B578;
 
     // Menu state
     // 0  - In Game
@@ -61,7 +55,7 @@ startup
 
 isLoading
 {
-    if (current.gameState1 == 0 && (current.gameState2 == 8 || current.gameState3 == 10) || current.isLoading == 0)
+    if (current.gameState1 == 0 && (current.gameState2 == 8 || current.gameState3 == 10))
     {
         return true;
     }
