@@ -92,8 +92,6 @@ update
   current.Scene = vars.Helper.Scenes.Active.Name ?? old.Scene;
 }
 
-
-
 start
 {
   return old.Scene == "StartCutscene" && current.Scene == "Game";  

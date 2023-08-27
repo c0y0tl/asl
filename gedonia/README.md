@@ -1,16 +1,13 @@
 # Gedonia
-Autosplitter and Load Remover for Gedonia.
-
+Auto Splitter and Load Removal for Gedonia. Based off [ash-help](https://github.com/just-ero/asl-help) library by Ero.
 ## Usage
-* [Downolad](https://github.com/just-ero/asl-help/archive/refs/heads/main.zip) asl-help library for LivesSplit.
+* [Downolad](https://github.com/just-ero/asl-help/raw/main/lib/asl-help) asl-help library for LivesSplit.
 * Copy `asl-help` from lib folder to LiveSplit Components folder.
-* [Download](https://raw.githubusercontent.com/c0y0tl/asl/main/gedonia/gedonia.asl) the script.
+* Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
 * Open the layout settings, and point it to the file you downloaded.
 * Select Levels, Mounts or Story to split.
-
 ## Problem Solving
-* If the Autosplitter and Load Remover function does not work, run LiveSplit after game start.
-
+* If Auto Splitter and Load Removal functions does not work, run LiveSplit after game start.
 ## Credits
-Based off [ash-help](https://github.com/just-ero/asl-help) library by Ero.
+By [c0y0tl](https://www.twitch.tv/c0y0tl)

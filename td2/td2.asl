@@ -4,7 +4,6 @@ state("DarknessII")
     int level: "DarknessII.exe", 0xD0A8CC;
     // Counter, increases when new level loaded
     int levelLoaded: "DarknessII.exe", 0xCDE0E0;
-
 }
 
 update
@@ -73,5 +72,4 @@ split
 			}
         }
     }
-
 }
