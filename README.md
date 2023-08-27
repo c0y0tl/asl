@@ -1,4 +1,4 @@
-# ASL
+# asl
 A collection of auto splitter scripts for LiveSplit
 
 * [Akiba's Trip: Undead &amp; Undressed](akibas_trip_undead_and_undressed)
