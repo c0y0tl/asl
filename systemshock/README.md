@@ -1,5 +1,5 @@
 # System Shock: Enhanced Edition
-Auto Splitter for System Shock: Enhanced Edition (Source Port)
+Auto Splitter for System Shock: Enhanced Edition (Source Port).
 ## Remarks
 Don't support last split.
 ## Usage

@@ -1,5 +1,5 @@
 # System Shock Remake
-Auto Splitter and Load Removal for System Shock 2
+Auto Splitter and Load Removal for System Shock 2.
 ## Remark
 * Requires version Patch Final 2.4 (Steam)
 * For the last split, you need to have the `Cs3.avi` file in the `Data\cutscenes` folder 
