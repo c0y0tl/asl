@@ -1,4 +1,4 @@
-# System Shock Remake
+# System Shock 2
 Auto Splitter and Load Removal for System Shock 2.
 ## Remark
 * Requires version Patch Final 2.4 (Steam)
