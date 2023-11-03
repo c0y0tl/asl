@@ -9,3 +9,4 @@ A collection of auto splitter scripts for LiveSplit
 * [System Shock (Source Port)](systemshock)
 * [System Shock 2](systemshock2)
 * [The Darkness II](td2)
+* [The Precursors](the_precursors)
