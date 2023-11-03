@@ -16,10 +16,6 @@ state("Precursors")
 
 startup
 {
-    vars.roundX = 0;
-    vars.roundY = 0;
-    vars.roundZ = 0;
-
     vars.Completed = new HashSet<string>();
 
     vars.missionData = new Tuple<string, int>[]
@@ -54,14 +50,6 @@ onStart
     vars.Completed.Clear();
 }
 
-update
-{
-    vars.roundX = Math.Round(current.posX, 3);
-    vars.roundY = Math.Round(current.posY, 3);
-    vars.roundZ = Math.Round(current.posZ, 3);    
-}
-
-
 split 
 {
     for (int i = 0; i < vars.missionData.Length; i++)
@@ -80,22 +68,21 @@ split
         && current.loading == 1
         && current.mission == 0
         && old.mission == 3104
-        && vars.Completed.Add("simultaion")
+        && vars.Completed.Add("simultaion"))
     {
         return true;
     }
 
     if (settings["nirrisaprotov"] == true
-        && (vars.roundX < 330000f && vars.roundX > 319900f)
-        && (vars.roundY < -3400f && vars.roundY > -3800f)
-        && (vars.roundZ < 96000f && vars.roundZ > 94000f)
+        && (vars.posX < 330000f && vars.posX > 319900f)
+        && (vars.posY < -3400f && vars.posY > -3800f)
+        && (vars.posZ < 96000f && vars.posZ > 94000f)
         && vars.Completed.Add("nirrisaprotov"))
     {
         return true;
     }
     
 }
-
 
 isLoading
 {
