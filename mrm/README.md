@@ -1,5 +1,5 @@
 # Muppet RaceMania
-Auto Splitter and Load Removal for Muppet RaceMania.
+Auto Splitter and Load Remover for Muppet RaceMania.
 ## Remark
 * Requires version ePSXe v2.0.5.
 ## Usage

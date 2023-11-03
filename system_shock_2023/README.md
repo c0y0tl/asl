@@ -1,5 +1,5 @@
 # System Shock Remake
-Auto Splitter and Load Removal for System Shock (Remake).
+Auto Splitter and Load Remover for System Shock (Remake).
 ## Usage
 * Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.

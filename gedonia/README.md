@@ -1,5 +1,5 @@
 # Gedonia
-Auto Splitter and Load Removal for Gedonia. Based off [ash-help](https://github.com/just-ero/asl-help) library by [Ero](https://github.com/just-ero).
+Auto Splitter and Load Remover for Gedonia. Based off [ash-help](https://github.com/just-ero/asl-help) library by [Ero](https://github.com/just-ero).
 ## Usage
 * [Downolad](https://github.com/just-ero/asl-help/raw/main/lib/asl-help) asl-help library for LivesSplit.
 * Copy `asl-help` from lib folder to LiveSplit Components folder.
