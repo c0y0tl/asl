@@ -1,4 +1,4 @@
-# The Darkness II
+# The Precursors
 Auto Splitter and Load Remover for The Precursors
 ## Usage
 * Download the script.
