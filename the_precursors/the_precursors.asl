@@ -8,10 +8,10 @@ state("Precursors")
     float posY: "vital.dll", 0x00369C70, 0x17C, 0x90;
     float posZ: "vital.dll", 0x00369C70, 0x17C, 0x94;
 
-    // Loading (Low accuracy)
+    // Loading
     // 1 - game
     // 0 - loading
-    int loading: "game.dll", 0x1C2E48;
+    int loading: "vital.dll", 0x00366570, 0x34, 0xC30;
 }
 
 startup
