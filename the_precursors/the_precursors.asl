@@ -8,10 +8,10 @@ state("Precursors")
     float posY: "vital.dll", 0x00369C70, 0x17C, 0x90;
     float posZ: "vital.dll", 0x00369C70, 0x17C, 0x94;
 
-    // Loading
+    // Loading (Low accuracy)
     // 1 - game
     // 0 - loading
-    int loading: "vital.dll", 0x003C1F88, 0x0, 0x20, 0x10, 0x10, 0x20, 0x24, 0xEF0;
+    int loading: "game.dll", 0x1C2E48;
 }
 
 startup
@@ -59,7 +59,6 @@ update
 start
 {
     if (current.loading == 1
-        && old.loading == 0
         && vars.roundX == 314005f
         && vars.roundY == 1025f
         && vars.roundZ == 343337f)
