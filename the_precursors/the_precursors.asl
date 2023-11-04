@@ -11,7 +11,7 @@ state("Precursors")
     // Loading
     // 1 - game
     // 0 - loading
-    int loading: "vital.dll", 0x00366570, 0x34, 0xC30;
+    int loading: "vital.dll", 0x003C1F88, 0x0, 0x20, 0x10, 0x10, 0x20, 0x24, 0xEF0;
 }
 
 startup
