@@ -8,10 +8,10 @@ state("Precursors")
     float posY: "vital.dll", 0x00369C70, 0x17C, 0x90;
     float posZ: "vital.dll", 0x00369C70, 0x17C, 0x94;
 
-    // Loading (Low accuracy)
+    // Loading
     // 1 - game
     // 0 - loading
-    byte loading: "game.dll", 0x1C2E48;
+    int loading: "vital.dll", 0x00366570, 0x34, 0xC30;
 }
 
 startup
@@ -49,16 +49,28 @@ startup
     settings.Add("nirrisaprotov", false, "Nirris Aprotov");
 }
 
+update
+{
+    vars.roundX = Math.Round(current.posX, 0);
+    vars.roundY = Math.Round(current.posY, 0);
+    vars.roundZ = Math.Round(current.posZ, 0);
+}
+
+start
+{
+    if (current.loading == 1
+        && old.loading == 0
+        && vars.roundX == 314005f
+        && vars.roundY == 1025f
+        && vars.roundZ == 343337f)
+    {
+        return true;
+    }
+}
+
 onStart
 {
     vars.Completed.Clear();
-}
-
-update
-{
-    vars.roundX = Math.Round(current.posX, 3);
-    vars.roundY = Math.Round(current.posY, 3);
-    vars.roundZ = Math.Round(current.posZ, 3);    
 }
 
 split 
