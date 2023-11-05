@@ -1,5 +1,7 @@
 # The Precursors
 Auto Splitter and Load Remover for The Precursors
+## Remark
+* Requires version 1.1 (Steam)
 ## Usage
 * Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
