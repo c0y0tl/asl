@@ -12,7 +12,11 @@ state("Precursors")
     // 1 - game
     // 0 - loading
     int loading: "game.dll", 0x1C2E48;
-    //int loading: "vital.dll", 0x00366570, 0x34, 0xC30;
+
+    // Loading
+    // 0 - game
+    // 1 - loading
+    int loading2: "verender3.dll", 0x1752B0;
 }
 
 startup
@@ -57,16 +61,16 @@ update
     vars.roundZ = Math.Round(current.posZ, 0);
 }
 
-// start
-// {
-//     if (current.loading == 1
-//         && vars.roundX == 314005f
-//         && vars.roundY == 1025f
-//         && vars.roundZ == 343337f)
-//     {
-//         return true;
-//     }
-// }
+start
+{
+    if (current.loading2 == 0
+        && vars.roundX == 314005f
+        && vars.roundY == 1025f
+        && vars.roundZ == 343337f)
+    {
+        return true;
+    }
+}
 
 onStart
 {
@@ -104,12 +108,11 @@ split
     {
         return true;
     }
-    
 }
 
 isLoading
 {
-    if (current.loading == 0)
+    if (current.loading2 == 1)
     {
         return true;
     }
