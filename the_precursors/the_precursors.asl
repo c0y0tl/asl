@@ -66,6 +66,17 @@ start
     }
 }
 
+reset
+{
+    if (current.loading == 1
+        && vars.roundX == 314005f
+        && vars.roundY == 1025f
+        && vars.roundZ == 343337f)
+    {
+        return true;
+    }
+}
+
 onStart
 {
     vars.Completed.Clear();
