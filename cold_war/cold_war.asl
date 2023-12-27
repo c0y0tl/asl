@@ -5,7 +5,6 @@ state("COLDWAR.EX")
     // 1...23
     // 0 = main menu
     int missionId: "COLDWAR.EX", 0xB19C400;
-    byte English_missionId "COLDWAR.EX", 0xB19C400
 
     // loadingScreen
     // 1 - loading (at the end Loading Screen)
@@ -67,15 +66,7 @@ startup
 
 start
 {
-    if (current.missionId == 1 && current.engineVideo == 1 && old.engineVideo == 0)
-    {
-        return true;
-    }
-}
-
-reset
-{
-    if (current.missionId == 1 && current.loadingScreenEnter == 1)
+    if (current.missionId == 0 && old.missionId == 0)
     {
         return true;
     }
