@@ -1,6 +1,7 @@
 # Cold War
 Auto Splitter and Load Remover for Cold War
 ## Remark
+* Before starting speedrun you need to qs/ql
 * Last split manual
 ## Usage
 * Download the script.
