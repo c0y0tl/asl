@@ -3,7 +3,9 @@ state("COLDWAR.EX")
     // missionId
     // Change valude on loading screen
     // 1...23
+    // 0 = main menu
     int missionId: "COLDWAR.EX", 0xB19C400;
+    byte English_missionId "COLDWAR.EX", 0xB19C400
 
     // loadingScreen
     // 1 - loading (at the end Loading Screen)
@@ -20,7 +22,7 @@ state("COLDWAR.EX")
     // 0 - any
     byte engineVideo: "COLDWAR.EX", 0x15B0C6C;
 
-    // laoding
+    // loading
     // 1 - game
     // 0 - loading
     byte loading: "COLDWAR.EX", 0x1798EC7;
@@ -60,6 +62,22 @@ startup
     foreach (var d in vars.missionData)
 	{
 	    settings.Add(d.Item1, false, d.Item2);
+    }
+}
+
+start
+{
+    if (current.missionId == 1 && current.engineVideo == 1 && old.engineVideo == 0)
+    {
+        return true;
+    }
+}
+
+reset
+{
+    if (current.missionId == 1 && current.loadingScreenEnter == 1)
+    {
+        return true;
     }
 }
 
