@@ -17,6 +17,7 @@ state("COLDWAR.EX")
     byte loadingScreenEnter: "COLDWAR.EX", 0x18BAA35;
 
     // engineVideo
+    // Before starting speedrun you need to qs/ql
     // 1 - engine video
     // 0 - any
     byte engineVideo: "COLDWAR.EX", 0x15B0C6C;
@@ -66,7 +67,15 @@ startup
 
 start
 {
-    if (current.missionId == 1 && old.missionId == 0)
+    if (current.missionId == 1 && current.engineVideo == 1 && old.engineVideo == 0)
+    {
+        return true;
+    }
+}
+
+reset
+{
+    if (current.missionId == 1 && current.loadingScreenEnter == 1)
     {
         return true;
     }
