@@ -2,7 +2,6 @@
 Auto Splitter and Load Remover for Cold War
 ## Remark
 * Last split manual
-* Requires RU version 
 ## Usage
 * Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
