@@ -3,7 +3,7 @@ state("COLDWAR.EX")
     // missionId
     // Change valude on loading screen
     // 1...23
-    // 0 = main menu
+    // 0 - main menu
     int missionId: "COLDWAR.EX", 0xB19C400;
 
     // loadingScreen
@@ -66,7 +66,7 @@ startup
 
 start
 {
-    if (current.missionId == 0 && old.missionId == 0)
+    if (current.missionId == 1 && old.missionId == 0)
     {
         return true;
     }
