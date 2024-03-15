@@ -1,5 +1,5 @@
 # The Darkness II
-Auto Splitter for The Darkness II
+Auto Splitter for [The Darkness II](https://www.speedrun.com/td2).
 > [!NOTE]
 > Don't support last split.
 ## Usage
