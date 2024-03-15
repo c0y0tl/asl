@@ -1,5 +1,5 @@
 # Cold War
-Auto Splitter and Load Remover for Cold War.
+Auto Splitter and Load Remover for [Cold War](https://www.speedrun.com/Cold_War).
 > [!NOTE]
 > Final split upon exiting the menu.
 ## Usage
