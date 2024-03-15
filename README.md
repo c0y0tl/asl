@@ -1,5 +1,5 @@
 # asl
-A collection of auto splitter scripts for LiveSplit
+A collection of auto splitter scripts for [LiveSplit](https://livesplit.org/)
 
 * [Akiba's Trip: Undead &amp; Undressed](akibas_trip_undead_and_undressed)
 * [Cold War](cold_war)
