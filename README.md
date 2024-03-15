@@ -1,6 +1,4 @@
-# asl
-A collection of auto splitter scripts for [LiveSplit](https://livesplit.org/)
-
+# Auto Splitter Scripts
 * [Akiba's Trip: Undead &amp; Undressed](akibas_trip_undead_and_undressed)
 * [Cold War](cold_war)
 * [Doom 3](doom3)
