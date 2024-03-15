@@ -1,7 +1,7 @@
 # Doom 3
-Auto Splitter and Load Remover for Doom 3
-## Remark
-It's modded version. Added Auto Splitter and new variable (Stops when saving occurs) for loading for RBDOOM.
+Auto Splitter and Load Remover for [Doom 3](https://www.speedrun.com/doom3).
+> [!NOTE]
+> It's modded version. Added Auto Splitter and new variable (Stops when saving occurs) for loading for RBDOOM.
 ## Usage
 * Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
