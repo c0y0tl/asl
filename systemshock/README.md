@@ -1,4 +1,4 @@
-# System Shock: Enhanced Edition
+# System Shock: Enhanced Edition (Source Port)
 Auto Splitter for [System Shock: Enhanced Edition (Source Port)](https://www.speedrun.com/systemshock).
 > [!NOTE]
 > Don't support last split.
