@@ -1,7 +1,7 @@
 # Muppet RaceMania
 Auto Splitter and Load Remover for [Muppet RaceMania](https://www.speedrun.com/mrm).
 > [!NOTE]
-> Requires version ePSXe v2.0.5.
+> Work with ePSXe v2.0.5.
 ## Usage
 * Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
