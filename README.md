@@ -3,6 +3,7 @@
 * [Cold War](cold_war)
 * [Doom 3](doom3)
 * [Gedonia](gedonia)
+* [Knights of the Temple II](knights_of_the_temple_ii)
 * [Muppet RaceMania](mrm)
 * [System Shock (Remake)](system_shock_2023)
 * [System Shock (Source Port)](systemshock)
