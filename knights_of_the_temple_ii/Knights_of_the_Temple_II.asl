@@ -109,7 +109,9 @@ start
 update
 {
     // Boss in second phase
-    if (current.map == "440gate" && current.boss > 65f && current.boss < 67f)
+    if (current.map == "440gate"
+        && current.boss > 65f
+        && current.boss < 67f)
     {
         vars.bossPhase = true;
     }
@@ -130,6 +132,7 @@ split
         && current.boss < 40f
         && current.video == 1
         && old.video == 0
+        && vars.bossPhase == true
         && vars.completedSplits.Add("440gate"))
     {
         return true;
