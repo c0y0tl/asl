@@ -1,5 +1,5 @@
 # Knights of the Temple II
-Load Remover for [Knights of the Temple II](https://www.speedrun.com/Knights_of_the_Temple_II).
+Load Remover and Auto Splitter for [Knights of the Temple II](https://www.speedrun.com/Knights_of_the_Temple_II).
 ## Usage
 * Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
