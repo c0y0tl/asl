@@ -106,6 +106,14 @@ start
     }
 }
 
+reset
+{
+    if (current.map == "890birka")
+    {
+        return true;
+    }
+}
+
 update
 {
     // Boss in second phase
