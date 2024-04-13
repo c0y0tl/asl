@@ -1,5 +1,5 @@
 # BloodRayne
-Auto Splitter and IGT for [Cold War](https://www.speedrun.com/bloodrayne).
+Auto Splitter and IGT for [BloodRayne](https://www.speedrun.com/bloodrayne).
 > [!NOTE]
 > It's modded version. Added logic for last split and reset. Original script by [Toxic_TT](https://www.twitch.tv/toxic_tt)
 ## Usage
