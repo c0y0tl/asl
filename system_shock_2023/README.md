@@ -1,7 +1,7 @@
 # System Shock Remake
 Auto Splitter and Load Remover for [System Shock (Remake)](https://www.speedrun.com/system_shock_2023).
 > [!NOTE]
-> It's modded version. Added logic for Auto Splitter.
+> It's modded version. Added logic for Auto Splitter. Original script by [Micrologist](https://www.twitch.tv/micrologist) 
 ## Usage
 * Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
