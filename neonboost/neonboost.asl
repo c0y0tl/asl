@@ -75,7 +75,7 @@ update
   //print("Scene " + current.Scene);
   //print("Game Over " + current.gameOver);
   //print("Vel " + current.vel);
-  //vars.kphRound = Math.Round(current.kph, 0);
+  vars.kphRound = Math.Round(current.kph, 0);
 }
 
 onStart
