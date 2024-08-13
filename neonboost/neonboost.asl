@@ -5,6 +5,7 @@ startup
   Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Unity");
   vars.Helper.GameName = "Neon Boost";
   vars.Helper.LoadSceneManager = true;
+  vars.kphRound = 0;
 
   vars.splitData = new Tuple<int, string, string, string>[]
   {
@@ -62,6 +63,8 @@ init
   {
     //┗|｀O′|┛ Help
     //vars.Helper["gameOver"] = mono.Make<bool>("GameManager", "CanvasGameOver", 0x10, 0x57);
+    //vars.Helper["vel"] = mono.Make<float>("FPS_Velocimeter", "UIkph");
+    vars.Helper["kph"] = mono.Make<double>("MusicSystem", "instance", "_FPSV", "kph");
     return true;
   });
 }
@@ -69,8 +72,10 @@ init
 update
 {
   current.Scene = vars.Helper.Scenes.Active.Name ?? old.Scene;
-  print("Scene " + current.Scene);
+  //print("Scene " + current.Scene);
   //print("Game Over " + current.gameOver);
+  //print("Vel " + current.vel);
+  //vars.kphRound = Math.Round(current.kph, 0);
 }
 
 onStart
