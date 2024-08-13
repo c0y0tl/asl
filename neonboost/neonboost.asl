@@ -3,7 +3,7 @@ state("Neon Boost") {}
 startup
 {
   Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Unity");
-  vars.Helper.GameName = "SuperHot";
+  vars.Helper.GameName = "Neon Boost";
   vars.Helper.LoadSceneManager = true;
 
   vars.splitData = new Tuple<int, string, string>[]
