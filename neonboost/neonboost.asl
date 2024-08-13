@@ -73,6 +73,11 @@ update
   //print("Game Over " + current.gameOver);
 }
 
+onStart
+{
+  vars.completedSplits.Clear();
+}
+
 start
 {
   if (current.Scene == "Lvl_01_01" && old.Scene == "Lvl_00_Menu")
