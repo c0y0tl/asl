@@ -7,10 +7,10 @@ startup
   vars.Helper.LoadSceneManager = true;
   vars.kphRound = 0;
 
-  // Item1 - Settins ID
+  // Item1 - ID (Used for Settings)
   // Item2 - Previous level
   // Item3 - Next level
-  // Item4 - Setting Name
+  // Item4 - Level Name (Used for Settings)
   vars.splitData = new Tuple<int, string, string, string>[]
   {
     Tuple.Create(0, "Lvl_01_01", "Lvl_01_02", "Lvl_01_01"),
