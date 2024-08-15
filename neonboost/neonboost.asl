@@ -7,6 +7,10 @@ startup
   vars.Helper.LoadSceneManager = true;
   vars.kphRound = 0;
 
+  // Item1 - Settins ID
+  // Item2 - Previous level
+  // Item3 - Next level
+  // Item4 - Setting Name
   vars.splitData = new Tuple<int, string, string, string>[]
   {
     Tuple.Create(0, "Lvl_01_01", "Lvl_01_02", "Lvl_01_01"),
@@ -49,8 +53,8 @@ startup
   };
 
   foreach (var sd in vars.splitData)
-	{
-		settings.Add(sd.Item1.ToString(), true, sd.Item4);
+  {
+    settings.Add(sd.Item1.ToString(), true, sd.Item4);
   }
 
   vars.completedSplits = new HashSet<string>();
@@ -58,12 +62,9 @@ startup
 
 init
 {
-  
   vars.Helper.TryLoad = (Func<dynamic, bool>)(mono =>
   {
-    //┗|｀O′|┛ Help
-    //vars.Helper["gameOver"] = mono.Make<bool>("GameManager", "CanvasGameOver", 0x10, 0x57);
-    //vars.Helper["vel"] = mono.Make<float>("FPS_Velocimeter", "UIkph");
+    // Thanks to Seifer
     vars.Helper["kph"] = mono.Make<double>("MusicSystem", "instance", "_FPSV", "kph");
     return true;
   });
@@ -72,9 +73,6 @@ init
 update
 {
   current.Scene = vars.Helper.Scenes.Active.Name ?? old.Scene;
-  //print("Scene " + current.Scene);
-  //print("Game Over " + current.gameOver);
-  //print("Vel " + current.vel);
   vars.kphRound = Math.Round(current.kph, 0);
 }
 
