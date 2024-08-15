@@ -6,6 +6,7 @@
 * [Gedonia](gedonia)
 * [Knights of the Temple II](knights_of_the_temple_ii)
 * [Muppet RaceMania](mrm)
+* [Neon Boost](neonboost)
 * [System Shock (Remake) [M]](system_shock_2023)
 * [System Shock: Enhanced Edition (Source Port)](systemshock)
 * [System Shock 2](systemshock2)
