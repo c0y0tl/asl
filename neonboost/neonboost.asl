@@ -57,6 +57,12 @@ startup
     settings.Add(sd.Item1.ToString(), true, sd.Item4);
   }
 
+  settings.Add("start_reset", true, "Start/Reset");
+  settings.SetToolTip("start_reset", "Use only one of the options");
+  settings.Add("01start_reset", true, "Laset City Start/Reset", "start_reset");
+  settings.Add("02start_reset", false, "Tesla Factory Start/Reset", "start_reset");
+  settings.Add("03start_reset", false, "Cosmic Highway start/reset","start_reset");
+
   vars.completedSplits = new HashSet<string>();
 }
 
@@ -83,17 +89,51 @@ onStart
 
 start
 {
-  if (((current.Scene == "Lvl_01_01") || (current.Scene == "Lvl_01_01b"))  && old.Scene == "Lvl_00_Menu")
+  if (settings["01start_reset"])
   {
-    return true;
+    if (((current.Scene == "Lvl_01_01") || (current.Scene == "Lvl_01_01b"))  && old.Scene == "Lvl_00_Menu")
+    {
+      return true;
+    }
+  }
+  if (settings["02start_reset"])
+  {
+    if (((current.Scene == "Lvl_02_01") || (current.Scene == "Lvl_02_01b"))  && old.Scene == "Lvl_00_Menu")
+    {
+      return true;
+    }
+  }
+  if (settings["03start_reset"])
+  {
+    if (((current.Scene == "Lvl_03_06") || (current.Scene == "Lvl_03_06b"))  && old.Scene == "Lvl_00_Menu")
+    {
+      return true;
+    }
   }
 }
 
 reset
 {
-  if (((current.Scene == "Lvl_01_01") || (current.Scene == "Lvl_01_01b"))  && old.Scene == "Lvl_00_Menu")
+  if (settings["01start_reset"])
   {
-    return true;
+    if (((current.Scene == "Lvl_01_01") || (current.Scene == "Lvl_01_01b"))  && old.Scene == "Lvl_00_Menu")
+    {
+      return true;
+    }
+  }
+  if (settings["02start_reset"])
+  {
+    if (((current.Scene == "Lvl_02_01") || (current.Scene == "Lvl_02_01b"))  && old.Scene == "Lvl_00_Menu")
+    {
+      return true;
+    }
+  }
+  if (settings["03start_reset"])
+  {
+    if (((current.Scene == "Lvl_03_06") || (current.Scene == "Lvl_03_06b"))  && old.Scene == "Lvl_00_Menu")
+    {
+      return true;
+    }
   }
 }
 
