@@ -53,8 +53,8 @@ startup
   };
 
   foreach (var sd in vars.splitData)
-	{
-		settings.Add(sd.Item1.ToString(), true, sd.Item4);
+  {
+    settings.Add(sd.Item1.ToString(), true, sd.Item4);
   }
 
   vars.completedSplits = new HashSet<string>();
