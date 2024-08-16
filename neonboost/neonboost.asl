@@ -61,7 +61,7 @@ startup
   settings.SetToolTip("start_reset", "Use only one of the options");
   settings.Add("01start_reset", true, "Laset City Start/Reset", "start_reset");
   settings.Add("02start_reset", false, "Tesla Factory Start/Reset", "start_reset");
-  settings.Add("03start_reset", false, "Cosmic Highway start/reset","start_reset");
+  settings.Add("03start_reset", false, "Cosmic Highway Start/Reset","start_reset");
 
   vars.completedSplits = new HashSet<string>();
 }
