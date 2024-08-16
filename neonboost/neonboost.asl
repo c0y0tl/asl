@@ -53,8 +53,8 @@ startup
   };
 
   foreach (var sd in vars.splitData)
-  {
-    settings.Add(sd.Item1.ToString(), true, sd.Item4);
+	{
+		settings.Add(sd.Item1.ToString(), true, sd.Item4);
   }
 
   vars.completedSplits = new HashSet<string>();
@@ -83,7 +83,7 @@ onStart
 
 start
 {
-  if (current.Scene == "Lvl_01_01" && old.Scene == "Lvl_00_Menu")
+  if (((current.Scene == "Lvl_01_01") || (current.Scene == "Lvl_01_01b"))  && old.Scene == "Lvl_00_Menu")
   {
     return true;
   }
@@ -91,7 +91,7 @@ start
 
 reset
 {
-  if (current.Scene == "Lvl_01_01" && old.Scene == "Lvl_00_Menu")
+  if (((current.Scene == "Lvl_01_01") || (current.Scene == "Lvl_01_01b"))  && old.Scene == "Lvl_00_Menu")
   {
     return true;
   }
@@ -102,8 +102,8 @@ split
   for (int i = 0; i < vars.splitData.Length; i++)
   {
     if (settings[vars.splitData[i].Item1.ToString()] == true
-        && vars.splitData[i].Item2 == old.Scene
-        && vars.splitData[i].Item3 == current.Scene
+        && ((vars.splitData[i].Item2 == old.Scene) || (vars.splitData[i].Item2 + "b" == old.Scene))
+        && ((vars.splitData[i].Item3 == current.Scene) || (vars.splitData[i].Item3 + "b" == current.Scene))
         && vars.completedSplits.Add(i.ToString()))
     {
       return true;
