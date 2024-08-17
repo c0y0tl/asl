@@ -6,6 +6,9 @@ startup
   vars.Helper.GameName = "Neon Boost";
   vars.Helper.LoadSceneManager = true;
   vars.kphRound = 0;
+  vars.lastZero = 0;
+  vars.goToMenu = 0;
+  vars.timeBetween = 0;
 
   settings.Add("start_reset", true, "Start/Reset");
   settings.SetToolTip("start_reset", "Use only one of the options");
@@ -66,6 +69,9 @@ startup
   settings.SetToolTip("11", "Split by exit in menu");
   settings.SetToolTip("23", "Split by exit in menu");
 
+  settings.Add("35", true, "[Crutch] Lvl_03_12");
+  settings.SetToolTip("35", "[Crutch] Split by exit in menu. IGT - (TimeWhenGoToMenu - TimeWhenSpeed​​WasZeroLastTime)");
+
   vars.completedSplits = new HashSet<string>();
 }
 
@@ -83,11 +89,28 @@ update
 {
   current.Scene = vars.Helper.Scenes.Active.Name ?? old.Scene;
   vars.kphRound = Math.Round(current.kph, 0);
+
+  if (current.Scene == "Lvl_03_11" && old.kph > 0 && current.kph == 0)
+  {
+    vars.lastZero = timer.CurrentTime.GameTime;
+    print("lastZero = " + vars.lastZero);
+  }
+
+  if (old.Scene == "Lvl_03_11" && current.Scene == "Lvl_00_Menu")
+  {
+    vars.goToMenu = timer.CurrentTime.GameTime;
+    print("goToMenu = " + vars.goToMenu);
+  }
 }
 
 onStart
 {
   vars.completedSplits.Clear();
+}
+
+isLoading
+{
+  return false;
 }
 
 start
@@ -142,6 +165,13 @@ reset
 
 split
 {
+  if (settings["35"] && old.Scene == "Lvl_03_11" && current.Scene == "Lvl_00_Menu")
+  {
+    vars.timeBetween = vars.goToMenu - vars.lastZero;
+    timer.SetGameTime(timer.CurrentTime.GameTime - vars.timeBetween);
+    return true;
+  }
+
   for (int i = 0; i < vars.splitData.Length; i++)
   {
     if (settings[vars.splitData[i].Item1.ToString()] == true
