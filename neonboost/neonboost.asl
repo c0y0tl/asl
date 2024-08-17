@@ -74,7 +74,7 @@ init
   vars.Helper.TryLoad = (Func<dynamic, bool>)(mono =>
   {
     // Thanks to Seifer
-    vars.Helper["kph"] = mono.Make<float>("MusicSystem", "instance", "_FPSV", "kph");
+    vars.Helper["kph"] = mono.Make<double>("MusicSystem", "instance", "_FPSV", "kph");
     return true;
   });
 }
