@@ -63,6 +63,9 @@ startup
     settings.Add(sd.Item1.ToString(), true, sd.Item4);
   }
 
+  settings.SetToolTip("11", "Split by exit in menu");
+  settings.SetToolTip("23", "Split by exit in menu");
+
   vars.completedSplits = new HashSet<string>();
 }
 
@@ -71,7 +74,7 @@ init
   vars.Helper.TryLoad = (Func<dynamic, bool>)(mono =>
   {
     // Thanks to Seifer
-    vars.Helper["kph"] = mono.Make<double>("MusicSystem", "instance", "_FPSV", "kph");
+    vars.Helper["kph"] = mono.Make<float>("MusicSystem", "instance", "_FPSV", "kph");
     return true;
   });
 }
