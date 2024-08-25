@@ -8,4 +8,4 @@ Auto Splitter for [Neon Boost](https://www.speedrun.com/neonboost). Based off [a
 * Open the layout settings, and point it to the file you downloaded.
 ## Credits
 By [c0y0tl](https://www.twitch.tv/c0y0tl)  
-Thanks for the improvement [Seifer](https://www.twitch.tv/seifertv) and [nikvel](https://www.twitch.tv/nikvel)
+Thanks for the improvement [Seifer](https://www.twitch.tv/seifertv) and [Nikvel](https://www.twitch.tv/nikvel)
