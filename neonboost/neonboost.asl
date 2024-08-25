@@ -127,7 +127,10 @@ update
         vars.address = startAddress;
       }
     }
-    vars.finalPoints = new DeepPointer(vars.address + 0x58, 0x40).Deref<float>(game);
+    if (vars.address != null)
+    {
+      vars.finalPoints = new DeepPointer(vars.address + 0x58, 0x40).Deref<float>(game);
+    }
   }
 }
 
