@@ -1,7 +1,5 @@
 # Neon Boost
 Auto Splitter for [Neon Boost](https://www.speedrun.com/neonboost). Based off [ash-help](https://github.com/just-ero/asl-help) library by [Ero](https://github.com/just-ero).
-> [!NOTE]
-> Don't support last split.
 ## Usage
 * [Downolad](https://github.com/just-ero/asl-help/raw/main/lib/asl-help) asl-help library for LivesSplit.
 * Copy `asl-help` from lib folder to LiveSplit Components folder.
@@ -10,4 +8,4 @@ Auto Splitter for [Neon Boost](https://www.speedrun.com/neonboost). Based off [a
 * Open the layout settings, and point it to the file you downloaded.
 ## Credits
 By [c0y0tl](https://www.twitch.tv/c0y0tl)  
-Thanks to [Seifer](https://www.twitch.tv/seifertv) 
+Thanks for the improvement [Seifer](https://www.twitch.tv/seifertv) and [nikvel](https://www.twitch.tv/nikvel)
