@@ -10,6 +10,9 @@ startup
   vars.goToMenu = 0;
   vars.timeBetween = 0;
 
+  vars.address = null; // 
+  vars.finalPoints = 0; // Shows end gametime on finishing last level
+
   settings.Add("start_reset", true, "Start/Reset");
   settings.SetToolTip("start_reset", "Use only one of the options");
   settings.Add("01start_reset", true, "Laset City Start/Reset", "start_reset");
@@ -89,7 +92,8 @@ update
 {
   current.Scene = vars.Helper.Scenes.Active.Name ?? old.Scene;
   vars.kphRound = Math.Round(current.kph, 0);
-
+  // Old Coyotl method
+  /* 
   if (current.Scene == "Lvl_03_11" && old.kph > 0 && current.kph == 0)
   {
     vars.lastZero = timer.CurrentTime.GameTime;
@@ -100,6 +104,32 @@ update
   {
     vars.goToMenu = timer.CurrentTime.GameTime;
     print("goToMenu = " + vars.goToMenu);
+  }
+  */
+
+  current.Scene = vars.Helper.Scenes.Active.Name ?? old.Scene;
+
+  // New Nikvel method
+  if (current.Scene == "Lvl_03_11")
+  {
+    IntPtr startAddress = new DeepPointer("UnityPlayer.dll", 0x01536F08, 0x8, 0x8, 0x30, 0x30, 0x28, 0x88, 0xB8, 0x60, 0x18).Deref<IntPtr>(game);
+
+    // Checks if the pointer is correct by looking at the level medals
+    int currentLevel = new DeepPointer(startAddress + 0x94).Deref<int>(game);
+    float gold = new DeepPointer(startAddress + 0x9c).Deref<float>(game);
+    float silver = new DeepPointer(startAddress + 0xa0).Deref<float>(game);
+    float bronze = new DeepPointer(startAddress + 0xa4).Deref<float>(game);
+    float dev = new DeepPointer(startAddress + 0xa8).Deref<float>(game);
+
+    if (currentLevel == 36 && gold == 60 && silver == 65 && bronze == 70 && dev == 55)
+    {
+      // Writes correct address to vars.address
+      if (vars.address != startAddress)
+      {
+        vars.address = startAddress;
+      }
+    }
+    vars.finalPoints = new DeepPointer(vars.address + 0x58, 0x40).Deref<float>(game);
   }
 }
 
@@ -165,12 +195,15 @@ reset
 
 split
 {
+  // Old last level split
+  /*
   if (settings["35"] && old.Scene == "Lvl_03_11" && current.Scene == "Lvl_00_Menu")
   {
     vars.timeBetween = vars.goToMenu - vars.lastZero;
     timer.SetGameTime(timer.CurrentTime.GameTime - vars.timeBetween);
     return true;
   }
+  */
 
   for (int i = 0; i < vars.splitData.Length; i++)
   {
@@ -181,5 +214,11 @@ split
     {
       return true;
     }
+  }
+
+  // Last level split
+  if (current.Scene == "Lvl_03_11" && vars.finalPoints != 0)
+  {
+    return true;
   }
 }
