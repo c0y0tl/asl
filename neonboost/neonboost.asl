@@ -72,8 +72,7 @@ startup
   settings.SetToolTip("11", "Split by exit in menu");
   settings.SetToolTip("23", "Split by exit in menu");
 
-  settings.Add("35", true, "[Crutch] Lvl_03_12");
-  settings.SetToolTip("35", "[Crutch] Split by exit in menu. IGT - (TimeWhenGoToMenu - TimeWhenSpeed​​WasZeroLastTime)");
+  settings.Add("35", true, "Lvl_03_12");
 
   vars.completedSplits = new HashSet<string>();
 }
@@ -217,7 +216,10 @@ split
   }
 
   // Last level split
-  if (current.Scene == "Lvl_03_11" && vars.finalPoints != 0)
+  if (settings["35"] 
+      && current.Scene == "Lvl_03_11" 
+      && vars.finalPoints != 0 
+      && vars.completedSplits.Add("35"))
   {
     return true;
   }
