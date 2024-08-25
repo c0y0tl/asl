@@ -89,7 +89,6 @@ init
 
 update
 {
-  current.Scene = vars.Helper.Scenes.Active.Name ?? old.Scene;
   vars.kphRound = Math.Round(current.kph, 0);
   // Old Coyotl method
   /* 
