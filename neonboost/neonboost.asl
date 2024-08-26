@@ -138,6 +138,7 @@ onStart
 {
   vars.completedSplits.Clear();
   vars.address = null;
+  vars.finalPoints = 0;
 }
 
 isLoading
