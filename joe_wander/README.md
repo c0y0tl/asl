@@ -1,5 +1,5 @@
 # Joe Wander and the Enigmatic Adventures
-Auto Splitter and Load Remover for [Joe Wander and the Enigmatic Adventures](https://www.speedrun.com/The_Precursors)].
+Auto Splitter and Load Remover for [Joe Wander and the Enigmatic Adventures](https://www.speedrun.com/joe_wander).
 > [!NOTE]
 > Requires version 0.1.
 ## Usage
