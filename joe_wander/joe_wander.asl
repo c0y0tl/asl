@@ -31,8 +31,6 @@ update
    vars.xRound = Math.Round(current.x, 3);
    vars.yRound = Math.Round(current.y, 3);
    vars.zRound = Math.Round(current.z, 3);
-
-   print("JW x " + vars.xRound + " y " + vars.yRound + " z " + vars.zRound);
 }
 
 isLoading
