@@ -51,19 +51,6 @@ start
    }
 }
 
-reset
-{
-   if (vars.xRound == 90.323 
-      && vars.yRound == 7.485 
-      && vars.zRound == 17.143
-      && old.x == 0
-      && old.y == 0
-      && old.z == 0)
-   {
-      return true;
-   }
-}
-
 split
 {
    if (settings["portalExit"] == true)
