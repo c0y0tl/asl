@@ -6,6 +6,7 @@
 * [Gedonia](gedonia)
 * [Joe Wander and the Enigmatic Adventures](joe_wander)
 * [Knights of the Temple II](knights_of_the_temple_ii)
+* [Lost Planet: Extreme Condition](lpec)
 * [Muppet RaceMania](mrm)
 * [Neon Boost](neonboost)
 * [System Shock (Remake) [M]](system_shock_2023)
