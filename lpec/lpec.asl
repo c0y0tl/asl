@@ -42,7 +42,7 @@ init
 
 startup
 {
-    settings.Add("il_igt", false, "IGT for IL");
+    settings.Add("il_igt", false, "IGT for IL (Turns off LRT)");
 
     vars.splitsData = new Tuple<string, float, float, string>[]
     {
@@ -114,17 +114,6 @@ startup
 
 }
 
-start
-{
-    if (settings["il_igt"] == true)
-    {
-        if (current.igt == 0)
-        {
-            return true;
-        }
-    }
-}
-
 gameTime {
     if (settings["il_igt"] == true)
     {
@@ -144,7 +133,8 @@ split
 {
     for (int i = 0; i < vars.splitsData.Length; i++)
     {
-        if (vars.splitsData[i].Item2 == current.checkpointY
+        if (settings[vars.splitsData[i].Item1] == true
+            && vars.splitsData[i].Item2 == current.checkpointY
             && vars.splitsData[i].Item3 == old.checkpointY)
         {
             return true;
