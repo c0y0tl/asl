@@ -99,7 +99,7 @@ startup
         Tuple.Create("10_1", -6532f, 1642f, "Mission 10 - 01"),
         Tuple.Create("10_2", 13026f, -6532f, "Mission 10 - 02"),
         Tuple.Create("10_3", 0f, 13026f, "Mission 10 - 03 (Boss)"),
-        Tuple.Create("10_4", 30796f, 20266f, "Mission 10 - 04"),
+        Tuple.Create("10_4", 30796f, 20266f, "Mission 10 - 04"), // Sometimes Item3 43914f
         Tuple.Create("10_5", 0f, 30796f, "Mission 10 - 05 (Boss)"),
         // Mission 11
         Tuple.Create("11_1", 0f, -4500f, "Mission 11 - 01"),
@@ -112,6 +112,11 @@ startup
 	    settings.Add(d.Item1, true, d.Item4, "splits");
     }
 
+}
+
+update
+{
+    print("LPEC checkpointY " + current.checkpointY);
 }
 
 gameTime {
@@ -133,6 +138,14 @@ split
 {
     for (int i = 0; i < vars.splitsData.Length; i++)
     {
+        if (current.checkpointY == 30796f
+            && vars.splitsData[i].Item2 == 30796f
+            && old.checkpointY == 43914f
+            && settings[vars.splitsData[i].Item1] == true)
+        {
+            return true;
+        }
+
         if (settings[vars.splitsData[i].Item1] == true
             && vars.splitsData[i].Item2 == current.checkpointY
             && vars.splitsData[i].Item3 == old.checkpointY)
