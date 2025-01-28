@@ -5,6 +5,7 @@
 * [Doom 3 [M]](doom3)
 * [Gedonia](gedonia)
 * [Joe Wander and the Enigmatic Adventures](joe_wander)
+* [Knight's Night!](knights_night)
 * [Knights of the Temple II](knights_of_the_temple_ii)
 * [Lost Planet: Extreme Condition](lpec)
 * [Muppet RaceMania](mrm)
