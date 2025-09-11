@@ -8,6 +8,7 @@
 * [Knight's Night!](knights_night)
 * [Knights of the Temple II](knights_of_the_temple_ii)
 * [Lost Planet: Extreme Condition](lpec)
+* [Metal Gear Solid V: The Phantom Pain](mgsvtpp)
 * [Muppet RaceMania](mrm)
 * [Neon Boost](neonboost)
 * [System Shock (Remake) [M]](system_shock_2023)
