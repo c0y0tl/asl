@@ -1,5 +1,5 @@
 # Metal Gear Solid V: The Phantom Pain
-Auto Splitter for [Metal Gear Solid V: The Phantom Pain](https://www.speedrun.com/mgsvtpp).
+Load Remover and Auto Splitter for [Metal Gear Solid V: The Phantom Pain](https://www.speedrun.com/mgsvtpp).
 ## Usage
 * Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
