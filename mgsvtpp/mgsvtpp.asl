@@ -17,6 +17,11 @@ state("mgsvtpp")
     // 1 - Cutscene
     // 0 - Other
     int isCutscene: "mgsvtpp.exe", 0x2A9C8C0;
+
+    // Mission Start
+    // 1 - Mission start
+    // 0 - Other
+    int missionStart: "mgsvtpp.exe", 0x02A641D0, 0xEF0;
 }
 
 startup
@@ -145,8 +150,13 @@ isLoading
 {
     if (current.isLoading == 1 && current.isCutscene == 0)
     {
+        if (current.missionStart == 1)
+        {
+            return false;
+        }
+        
         return true;
-    }
+    } 
     else
     {
         return false;
