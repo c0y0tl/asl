@@ -8,10 +8,15 @@ state("mgsvtpp")
     // 0 - Other
     int startResume: "mgsvtpp.exe", 0x02A6F918, 0x3C;
 
+
+    // int isLoading: "mgsvtpp.exe", 0x02B3A070, 0x40; // Has 1 on score, report, first cutscenes and etc.
+    // int isLoading: "mgsvtpp.exe", 0x02B51390,  0x70, 0x68, 0x20, 0x60, 0x9D8, 0xE30; // Low accuracy
+
     // Loading
     // 1 - Loading
     // 0 - Other
-    int isLoading: "mgsvtpp.exe", 0x02B3A070, 0x40;
+    // 256 - Cutscene
+    int isLoading: "mgsvtpp.exe", 0x2A9CC14;
 
     // Cutscene
     // 1 - Cutscene
@@ -22,6 +27,16 @@ state("mgsvtpp")
     // 1 - Mission start
     // 0 - Other
     int missionStart: "mgsvtpp.exe", 0x02A641D0, 0xEF0;
+
+    // Mission Start Episode N
+    // Changes if on screen "Episode N"
+    string255 missionStartEpisode: "mgsvtpp.exe", 0x02AB6638, 0xEB8, 0x778;
+
+    
+    // Report
+    // 1 - Report
+    // 0 - Other
+    int isReport: "mgsvtpp.exe", 0x2A9C140;
 }
 
 startup
@@ -64,7 +79,6 @@ startup
         Tuple.Create("29", "Episode 29: Metallic Archaea"),
         Tuple.Create("30", "Episode 30: Skull Face"),
         Tuple.Create("31", "Episode 31: Sahelanthropus"),
-        Tuple.Create("51", "[CHAPTER 1 CREDITS]"),
         Tuple.Create("32", "Episode 32: To Know Too Much"),
         Tuple.Create("33", "Episode 33: [Subsistence] C2W"),
         Tuple.Create("34", "Episode 34: [Extreme] Backup, Back Down"),
@@ -83,24 +97,36 @@ startup
         Tuple.Create("47", "Episode 47: [Total Stealth] The War Economy"),
         Tuple.Create("48", "Episode 48: [Extreme] Code Talker"),
         Tuple.Create("49", "Episode 49: [Subsistence] Occupation Forces"),
-        Tuple.Create("50", "Episode 50: [Extreme] Sahelanthropus"),
+        Tuple.Create("50", "Episode 50: [Extreme] Sahelanthropus")    
     };
+
+    settings.Add("start", true, "Split on 'Episode N' Screen");
 
     foreach (var d in vars.missionData)
 	{
-	    settings.Add(d.Item1, false, d.Item2);
+	    settings.Add("st" + d.Item1, false, d.Item2, "start");
     }
+
+    settings.Add("score", true, "Split on SCORE");
+
+    foreach (var d in vars.missionData)
+	{
+	    settings.Add("sc" + d.Item1, false, d.Item2, "score");
+    }
+
+    settings.Add("credits", true, "Split on CREDITS");
+    settings.Add("c1", false, "Chapter 1", "credits");
 }
 
 update
 {
-    if (settings["51"] == true
+    if (settings["c1"] == true
         && current.scoreTitle.ToLower().Contains(vars.missionData[31].Item2.ToLower()))
     {
         vars.finishChapter1 = true;
     }
 
-    if (settings["51"] == true
+    if (settings["c1"] == true
         && vars.finishChapter1 == true)
     {
         if (current.isCutscene == 1 && old.isCutscene == 0)
@@ -119,7 +145,9 @@ onStart
 
 start
 {
-    if (current.startResume == 1 && old.startResume == 0)
+    if (current.isLoading == 1 
+        && current.startResume == 1 
+        && old.startResume == 0)
     {
         return true;
     }
@@ -127,17 +155,21 @@ start
 
 split
 {
-    if (settings["51"] == true
-        && vars.cutsceneCounterC1 == 2)
+    if (settings["c1"] == true
+        && vars.cutsceneCounterC1 == 2
+        && vars.Completed.Add("c1"))
     {
         return true;
     }
 
     for (var i = 0; i < vars.missionData.Length; i++)
     {
-        if (settings[vars.missionData[i].Item1]
+        if ((settings["sc" + vars.missionData[i].Item1]
         && current.scoreTitle.ToLower().Contains(vars.missionData[i].Item2.ToLower())
-        && vars.Completed.Add(vars.missionData[i].Item1))
+        && vars.Completed.Add("sc" + vars.missionData[i].Item1))
+        || (settings["st" + vars.missionData[i].Item1]
+        && vars.missionData[i].Item2.ToLower().Contains(current.missionStartEpisode.ToLower())
+        && vars.Completed.Add("st" + vars.missionData[i].Item1)))
         {
             return true;
         }
@@ -148,9 +180,11 @@ split
 
 isLoading
 {
-    if (current.isLoading == 1 && current.isCutscene == 0)
+    if (current.isLoading == 1 
+        && current.isCutscene == 0)
     {
-        if (current.missionStart == 1)
+        if (current.missionStart == 1
+            || current.isReport == 1)
         {
             return false;
         }
