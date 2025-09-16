@@ -104,7 +104,10 @@ startup
 
     foreach (var d in vars.missionData)
 	{
-	    settings.Add("st" + d.Item1, false, d.Item2, "start");
+        if (d.Item1 != "0")
+        {
+            settings.Add("st" + d.Item1, false, d.Item2, "start");
+        }
     }
 
     settings.Add("score", true, "Split on SCORE");
