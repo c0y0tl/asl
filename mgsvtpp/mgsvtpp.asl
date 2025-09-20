@@ -132,6 +132,10 @@ update
     {
         vars.episodeNumber = Convert.ToInt32(current.scoreTitle.Substring(current.scoreTitle.IndexOf(":") - 2, 2));
     }
+    else
+    {
+        vars.episodeNumber = -1;
+    }
 
     if (settings["c1"] == true
         && vars.episodeNumber == 31)
