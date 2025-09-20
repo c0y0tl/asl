@@ -34,6 +34,11 @@ state("mgsvtpp")
     // 1 - Cutscene
     // 0 - Other
     int isCutscene: "mgsvtpp.exe", 0x2A9C8C0;
+
+    // Report
+    // 1 - Report
+    // 0 - Other
+    int isReport: "mgsvtpp.exe", 0x2A9C140;
 }
 
 startup
@@ -199,11 +204,15 @@ split
 
 isLoading
 {
-    if (current.isLoading == 0)
+    if (current.isLoading == 0 || current.isLoading == 256)
     {
         if (current.splashScreen == 1)
         {
-            return true;
+            return false;
+        }
+        if (current.isReport == 1)
+        {
+            return false;
         }
         
         return true;
