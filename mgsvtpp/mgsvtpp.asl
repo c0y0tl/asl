@@ -25,8 +25,8 @@ state("mgsvtpp")
     // 0 - Loading
     int isLoading: "mgsvtpp.exe", 0x02A6FBD8, 0x38, 0x60, 0x698;
 
-    // Loading between cutscene
-    // 1 - Loading, some cutscene, report, score
+    // For loading between cutscene
+    // 1 - Loading, loading between cutscene, some cutscene, report, score
     // 0 - Other
     int bLoading: "mgsvtpp.exe", 0x02B3A070, 0x40;
 
