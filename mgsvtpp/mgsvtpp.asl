@@ -151,7 +151,6 @@ update
             vars.cutsceneCounterC1++;
         }
     }
-    
 }
 
 onStart
@@ -214,7 +213,13 @@ isLoading
         {
             return false;
         }
+        
         if (current.isReport == 1)
+        {
+            return false;
+        }
+        
+        if (vars.episodeNumber != -1)
         {
             return false;
         }
