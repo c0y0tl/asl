@@ -19,7 +19,6 @@ state("mgsvtpp")
     // 0 - Other
     int splashScreen: "mgsvtpp.exe", 0x02A641D0, 0xEF0;
 
-
     // Loading screen
     // 1 - In game
     // 0 - Loading
@@ -31,12 +30,13 @@ state("mgsvtpp")
     int bLoading: "mgsvtpp.exe", 0x02B3A070, 0x40;
 
     // Cutscene
-    // 1 - Cutscene
+    // 1 - In more cases Cutscene
     // 0 - Other
+    // 2..3 - ??
     int isCutscene: "mgsvtpp.exe", 0x2A9C8C0;
 
     // Report
-    // 1 - Report
+    // 1 - In more cases Report 
     // 0 - Other
     int isReport: "mgsvtpp.exe", 0x2A9C140;
 }
@@ -209,17 +209,10 @@ isLoading
 {
     if (current.isLoading == 0 || current.isLoading == 256)
     {
-        if (current.splashScreen == 1)
-        {
-            return false;
-        }
-        
-        if (current.isReport == 1)
-        {
-            return false;
-        }
-        
-        if (vars.episodeNumber != -1)
+        // Exceptions
+        if (current.splashScreen == 1
+            || current.isReport == 1
+            || vars.episodeNumber != -1)
         {
             return false;
         }
