@@ -48,6 +48,9 @@ startup
     vars.statusC1 = false;
     vars.cutsceneCounterC1 = 0;
 
+    vars.statusC2 = false;
+    vars.cutsceneCounterC2 = 0;
+
     vars.episodeNumber = -1;
 
     vars.missionData = new Tuple<int, int, string>[]
@@ -83,27 +86,26 @@ startup
         Tuple.Create(10130, 28, "Episode 28: Code Talker"),
         Tuple.Create(10140, 29, "Episode 29: Metallic Archaea"),
         Tuple.Create(10150, 30, "Episode 30: Skull Face"),
-        Tuple.Create(10151, 31, "Episode 31: Sahelanthropus")
-        
-        // Tuple.Create("32", "Episode 32", "Episode 32: To Know Too Much"),
-        // Tuple.Create("33", "Episode 33", "Episode 33: [Subsistence] C2W"),
-        // Tuple.Create("34", "Episode 34", "Episode 34: [Extreme] Backup, Back Down"),
-        // Tuple.Create("35", "Episode 35", "Episode 35: Cursed Legacy"),
-        // Tuple.Create("36", "Episode 36", "Episode 36: [Total Stealth] Footprints Of Phantoms"),
-        // Tuple.Create("37", "Episode 37", "Episode 37: [Extreme] Traitors' Caravan"),
-        // Tuple.Create("38", "Episode 38", "Episode 38: Extraordinary"),
-        // Tuple.Create("39", "Episode 39", "Episode 39: [Total Stealth] Over the Fence"),
-        // Tuple.Create("40", "Episode 40", "Episode 40: [Extreme] Cloaked in Silence"),
-        // Tuple.Create("41", "Episode 41", "Episode 41: Proxy War Without End"),
-        // Tuple.Create("42", "Episode 42", "Episode 42: [Extreme] Metallic Archaea"),
-        // Tuple.Create("43", "Episode 43", "Episode 43: Shining Lights, Even in Death"),
-        // Tuple.Create("44", "Episode 44", "Episode 44: [Total Stealth] Pitch Dark"),
-        // Tuple.Create("45", "Episode 45", "Episode 45: A Quiet Exit"),
-        // Tuple.Create("46", "Episode 46", "Episode 46: Truth: The Man Who Sold the World"),
-        // Tuple.Create("47", "Episode 47", "Episode 47: [Total Stealth] The War Economy"),
-        // Tuple.Create("48", "Episode 48", "Episode 48: [Extreme] Code Talker"),
-        // Tuple.Create("49", "Episode 49", "Episode 49: [Subsistence] Occupation Forces"),
-        // Tuple.Create("50", "Episode 50", "Episode 50: [Extreme] Sahelanthropus")    
+        Tuple.Create(10151, 31, "Episode 31: Sahelanthropus"),
+        Tuple.Create(10045, 32, "Episode 32: To Know Too Much"),
+        Tuple.Create(11043, 33, "Episode 33: [Subsistence] C2W"),
+        Tuple.Create(11054, 34, "Episode 34: [Extreme] Backup, Back Down"),
+        Tuple.Create(10093, 35, "Episode 35: Cursed Legacy"),
+        Tuple.Create(11082, 36, "Episode 36: [Total Stealth] Footprints Of Phantoms"),
+        Tuple.Create(11090, 37, "Episode 37: [Extreme] Traitors' Caravan"),
+        Tuple.Create(10156, 38, "Episode 38: Extraordinary"),
+        Tuple.Create(11033, 39, "Episode 39: [Total Stealth] Over the Fence"),
+        Tuple.Create(11050, 40, "Episode 40: [Extreme] Cloaked in Silence"),
+        Tuple.Create(10171, 41, "Episode 41: Proxy War Without End"),
+        Tuple.Create(11140, 42, "Episode 42: [Extreme] Metallic Archaea"),
+        Tuple.Create(10240, 43, "Episode 43: Shining Lights, Even in Death"),
+        Tuple.Create(11080, 44, "Episode 44: [Total Stealth] Pitch Dark"),
+        Tuple.Create(10260, 45, "Episode 45: A Quiet Exit"),
+        Tuple.Create(10280, 46, "Episode 46: Truth: The Man Who Sold the World"),
+        Tuple.Create(11121, 47, "Episode 47: [Total Stealth] The War Economy"),
+        Tuple.Create(11130, 48, "Episode 48: [Extreme] Code Talker"),
+        Tuple.Create(11044, 49, "Episode 49: [Subsistence] Occupation Forces"),
+        Tuple.Create(11151, 50, "Episode 50: [Extreme] Sahelanthropus")    
     };
 
     settings.Add("start", true, "Split on EPISODE START");
@@ -124,6 +126,7 @@ startup
 
     settings.Add("credits", true, "Split on CREDITS");
     settings.Add("c1", false, "Chapter 1", "credits");
+    settings.Add("c2", false, "Chapter 2", "credits");
 }
 
 update
@@ -151,6 +154,21 @@ update
             vars.cutsceneCounterC1++;
         }
     }
+
+    if (settings["c2"] == true
+        && vars.episodeNumber == 46)
+    {
+        vars.statusC2 = true;
+    }
+
+    if (settings["c2"] == true
+        && vars.statusC2 == true)
+    {
+        if (current.isCutscene == 1 && old.isCutscene == 0)
+        {
+            vars.cutsceneCounterC2++;
+        }
+    }
 }
 
 onStart
@@ -159,6 +177,9 @@ onStart
 
     vars.statusC1 = false;
     vars.cutsceneCounterC1 = 0;
+
+    vars.statusC2 = false;
+    vars.cutsceneCounterC2 = 0;
 
     vars.episodeNumber = -1;
 }
@@ -178,6 +199,13 @@ split
     if (settings["c1"] == true
         && vars.cutsceneCounterC1 == 2
         && vars.Completed.Add("c1"))
+    {
+        return true;
+    }
+
+    if (settings["c2"] == true
+        && vars.cutsceneCounterC2 == 4
+        && vars.Completed.Add("c2"))
     {
         return true;
     }
