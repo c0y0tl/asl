@@ -24,11 +24,6 @@ state("mgsvtpp")
     // 0 - Loading
     int isLoading: "mgsvtpp.exe", 0x02A6FBD8, 0x38, 0x60, 0x698;
 
-    // For loading between cutscene
-    // 1 - Loading, loading between cutscene, some cutscene, report, score
-    // 0 - Other
-    int bLoading: "mgsvtpp.exe", 0x02B3A070, 0x40;
-
     // Cutscene
     // 1 - In more cases Cutscene
     // 0 - Other
@@ -164,9 +159,10 @@ update
     if (settings["c2"] == true
         && vars.statusC2 == true)
     {
-        if (current.isCutscene == 1 && old.isCutscene == 0)
+        if (old.isCutscene == 1 && current.isCutscene == 0)
         {
             vars.cutsceneCounterC2++;
+            
         }
     }
 }
@@ -204,7 +200,7 @@ split
     }
 
     if (settings["c2"] == true
-        && vars.cutsceneCounterC2 == 4
+        && vars.cutsceneCounterC2 == 3
         && vars.Completed.Add("c2"))
     {
         return true;
