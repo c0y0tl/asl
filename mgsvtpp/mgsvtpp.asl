@@ -20,8 +20,8 @@ state("mgsvtpp")
     int splashScreen: "mgsvtpp.exe", 0x02A641D0, 0xEF0;
 
     // Loading screen
-    // 1 - In game
-    // 0 - Loading
+    // 1 / 256 - In game
+    // 0 / 257 - Loading
     int isLoading: "mgsvtpp.exe", 0x02A6FBD8, 0x38, 0x60, 0x698;
 
     // Cutscene
