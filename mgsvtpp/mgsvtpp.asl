@@ -144,7 +144,7 @@ update
     if (settings["c1"] == true
         && vars.statusC1 == true)
     {
-        if (current.isCutscene == 1 && old.isCutscene == 0)
+        if (old.isCutscene == 1 && current.isCutscene == 0)
         {
             vars.cutsceneCounterC1++;
         }
@@ -193,7 +193,7 @@ start
 split
 {
     if (settings["c1"] == true
-        && vars.cutsceneCounterC1 == 2
+        && vars.cutsceneCounterC1 == 1
         && vars.Completed.Add("c1"))
     {
         return true;
