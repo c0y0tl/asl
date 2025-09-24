@@ -48,7 +48,7 @@ startup
     vars.statusC2 = false;
     vars.cutsceneCounterC2 = 0;
 
-    vars.missionData = new Tuple<int, int, string>[]
+    vars.missionData = new Tuple<int, string>[]
     {
         Tuple.Create(10010, "Episode 0: Prologue: Awakening"),
         Tuple.Create(10020, "Episode 1: Phantom Limbs"),
