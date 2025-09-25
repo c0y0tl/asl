@@ -202,8 +202,7 @@ split
     {
         if (settings["sc" + vars.missionData[i].Item1]
         && vars.missionData[i].Item1 == current.missionId
-        && old.scorePages == 1
-        && current.scorePages == 2
+        && current.scorePages == 1
         && vars.Completed.Add("sc" + vars.missionData[i].Item1))
         {
             return true;
