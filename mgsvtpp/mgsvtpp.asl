@@ -9,17 +9,12 @@ state("mgsvtpp")
     // Score pages
     // 1..3 - Score screen
     // ?? - Other
-    int scorePages: "mgsvtpp.exe", 0x02B51390, 0x70, 0x280, 0x3D4;
+    int scorePages: "mgsvtpp.exe", 0x02B51390, 0x70, 0x280, 0x20, 0x170, 0xB6C;
 
     // Resume
     // 1 - When press "Resume ..."
     // 0 - Other
     int resume: "mgsvtpp.exe", 0x02A6F918, 0x3C;
-
-    // Starting splash screen
-    // 1 - Splash screen active
-    // 0 - Other
-    int splashScreen: "mgsvtpp.exe", 0x02A641D0, 0xEF0;
 
     // Loading screen
     // 1 / 256 - In game
@@ -229,8 +224,7 @@ isLoading
     if (current.isLoading == 0 || current.isLoading == 256)
     {
         // Exceptions
-        if (current.splashScreen == 1
-            || current.isReport == 1
+        if (current.isReport == 1
             || (current.scorePages >= 1 && current.scorePages <= 3))
         {
             return false;
