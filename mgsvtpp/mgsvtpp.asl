@@ -9,7 +9,7 @@ state("mgsvtpp")
     // Score pages
     // 1..3 - Score screen
     // ?? - Other
-    int scorePages: "mgsvtpp.exe", 0x02B51390, 0x70, 0x280, 0x20, 0x170, 0xB6C;
+    int scorePages: "mgsvtpp.exe", 0x028D0B28, 0x68, 0x48, 0xA8, 0x10, 0x160, 0x0, 0x3D4;
 
     // Resume
     // 1 - When press "Resume ..."
