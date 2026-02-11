@@ -102,7 +102,11 @@ split
     return true;
   }
 
-  if (current.messageLabel.Equals("Are you ready to leave\nTunguska?") && current.confirmPanelActive == false && old.confirmPanelActive == true)
+  if ((current.messageLabel.Equals("Are you ready to leave\nTunguska?")
+      || current.messageLabel.Equals("Готовы покинуть Тунгуску?")
+      )
+    && current.confirmPanelActive == false 
+    && old.confirmPanelActive == true)
   {
     return true;
   }
