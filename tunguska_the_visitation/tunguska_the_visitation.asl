@@ -6,7 +6,8 @@ startup
   Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Unity");
   
   vars.Helper.LoadSceneManager = true;
-
+  
+  // Sublevels list:
   // Editor's Office - EditorOffice
   // Zernaskaya Village - Village
   // Old Mill - Mill
@@ -16,44 +17,44 @@ startup
   // Railroad Worker Camp - RailroadCamp
   // Water Treatment Plant - WaterTreatment
   // Lake Cheko - Swamp
-  // Luxury House - LuxuryHouse
+  // Koshevoy Estate - LuxuryHouse
   // Station-11 - Station11Proper
-  // Sanatorium - Sanatorium
+  // Ashinaka - Sanatorium
   // Oblenska Army Camp - Oblenska  
+  // Ashinaka (Forest) - Sanatorium
 
+  // splitData
   // Item1 - ID
-  // Item2 - old level
-  // Item3 - current level
-  // Item4 - Split name
-  
-  vars.splitData = new Tuple<int, string, string, string>[]
+  // Item2 - Sublevel name
+  // Item3 - Title
+  vars.splitData = new Tuple<int, string, string>[]
   {
-    Tuple.Create(1,  "EditorOffice", "Village", "Editor's Office"),
-    Tuple.Create(2,  "Village", "Mill", "Zernaskaya Village 1"),
-    Tuple.Create(3,  "Mill", "Village", "Old Mill"),
-    Tuple.Create(4,  "BarnChurch", "Village", "Barn and Church"),
-    Tuple.Create(5,  "Village", "RoadBlock", "Zernaskaya Village 2"),
-    Tuple.Create(6,  "RoadBlock", "TrainStation", "Army Cordon 1"),
-    Tuple.Create(7,  "TrainStation", "RoadBlock", "Zernaskaya Station"),
-    Tuple.Create(8,  "RoadBlock", "Village", "Army Cordon 2"),
-    Tuple.Create(9,  "Village", "RailroadCamp", "Zernaskaya Village 3"),
-    Tuple.Create(10, "RailroadCamp", "WaterTreatment", "Railroad Worker Camp 1"),
-    Tuple.Create(11, "WaterTreatment", "Swamp", "Water Treatment Plant"),
-    Tuple.Create(12, "Swamp", "RailroadCamp", "Lake Cheko"),
-    Tuple.Create(13, "Station11Proper", "Sanatorium", "Station-11"),
-    Tuple.Create(14, "Oblenska", "Sanatorium", "Oblenska"),
-    Tuple.Create(15, "Sanatorium", "Station11Proper", "Sanatorium"),
-    Tuple.Create(16, "RailroadCamp", "Village", "Railroad Worker Camp 2")
+    Tuple.Create(1,  "EditorOffice", "Editor's Office"),
+    Tuple.Create(2,  "Village", "Zernaskaya Village"),
+    Tuple.Create(3,  "Mill", "Old Mill"),
+    Tuple.Create(4,  "BarnChurch", "Barn and Church"),
+    Tuple.Create(5,  "RoadBlock", "Army Cordon"),
+    Tuple.Create(6,  "TrainStation", "Zernaskaya Station"),
+    Tuple.Create(7,  "RailroadCamp", "Railroad Worker Camp"),
+    Tuple.Create(8,  "Station11Proper", "Station-11"),
+    Tuple.Create(9,  "LuxuryHouse", "Koshevoy Estate"),
+    Tuple.Create(10, "WaterTreatment", "Water Treatment Plant"),
+    Tuple.Create(11, "Swamp", "Lake Cheko"),
+    Tuple.Create(12, "Sanatorium", "Ashinaka"),
+    Tuple.Create(13, "Oblenska", "Oblenska Army Camp")
   };
 
-  settings.Add("l", false, "Locations");
+  settings.Add("so", false, "Split Once");
 
+  settings.Add("l_en", false, "Entering the SubLevel");
   foreach (var d in vars.splitData)
 	{
-		settings.Add(d.Item1.ToString(), false, d.Item4, "l");
+		settings.Add(d.Item1.ToString() + "l_en", false, d.Item3, "l_en");
   }
 
-  settings.Add("ns", false, "News Split");
+  settings.Add("lt", false, "Leave Tunguska");
+
+  settings.Add("ns", false, "Split on 'Discovered a news story'");
 
   vars.Completed = new HashSet<string>();
 }
@@ -62,16 +63,34 @@ init
 {
   vars.Helper.TryLoad = (Func<dynamic, bool>)(mono =>
   {
+    // loadingScreenText
+    // true - Text on loading screen activated
+    // false - Text on loading screen deactivated
     vars.Helper["loadingScreenText"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "FadingPanel", "LoadingScreenText", 0x140);
-    vars.Helper["currentSlide"] = mono.Make<int>("GameManager", "Inst", "UIManager", "IntroPanel", "_currentSlide");
-    vars.Helper["slideActive"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "IntroPanel", 0x18);
+    
+    // levelName
+    // string - Current level
     vars.Helper["levelName"] = mono.MakeString("GameManager", "Inst", "LevelName");
+    // subLevelName
+    // string - Current sublevel
     vars.Helper["subLevelName"] = mono.MakeString("GameManager", "Inst", "SubLevelName");
-    vars.Helper["newsStories"] = mono.Make<int>("GameManager", "Inst", "PlayerProgress", "NewsStories", 0x18);
-    vars.Helper["messageLabel"] = mono.MakeString("GameManager", "Inst", "UIManager", "ConfirmPanel", "MessageLabel", 0x198);
-    vars.Helper["confirmPanelActive"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "ConfirmPanel", 0x18);
-
+    // currentEnvironment
+    // string - Current environment
+    // string (Wilderness) - In normal world
     vars.Helper["currentEnvironment"] = mono.MakeString("GameManager", "Inst", "WorldManager", "CurrentEnvironment", "Name");
+    
+    // newsStories
+    // int (0 default) - increases by one when the player receives a new news stories
+    vars.Helper["newsStories"] = mono.Make<int>("GameManager", "Inst", "PlayerProgress", "NewsStories", 0x18);
+    
+    // messageLabel
+    // string - text on confirm panel
+    vars.Helper["messageLabel"] = mono.MakeString("GameManager", "Inst", "UIManager", "ConfirmPanel", "MessageLabel", 0x198);
+    // confirmPanelActive
+    // true - When panel is visible
+    // false - When panel is hidden
+    vars.Helper["confirmPanelActive"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "ConfirmPanel", 0x18);
+    
     return true;
   });
 }
@@ -83,8 +102,8 @@ update
 
 start
 {
-  if (current.currentEnvironment == "Room"
-      && old.currentEnvironment == "Wilderness")
+  if (current.currentEnvironment == "Room" && 
+      old.currentEnvironment == "Wilderness")
   {
     return true;
   }
@@ -97,40 +116,56 @@ onStart
 
 split
 {
-  if ((settings["ns"] == true) &&(current.Scene != "MainMenu" || current.Scene != "NewYork") && (current.newsStories > old.newsStories))
+  if (settings["ns"])
   {
-    return true;
-  }
-
-  if ((current.messageLabel.Equals("Are you ready to leave\nTunguska?")
-      || current.messageLabel.Equals("Готовы покинуть Тунгуску?")
-      )
-    && current.confirmPanelActive == false 
-    && old.confirmPanelActive == true)
-  {
-    return true;
-  }
-
-  for (int i = 0; i < vars.splitData.Length; i++)
-  {
-    if (settings[vars.splitData[i].Item1.ToString()] == true
-        && old.subLevelName.Equals(vars.splitData[i].Item2)
-        && current.subLevelName.Equals(vars.splitData[i].Item3)
-        && vars.Completed.Add(vars.splitData[i].Item1.ToString()))
+    if (current.newsStories == old.newsStories - 1)
     {
       return true;
+    }
+  }
+
+  if (settings["lt"])
+  {
+    if ((current.messageLabel.Equals("Are you ready to leave\nTunguska?") ||
+         current.messageLabel.Equals("Готовы покинуть Тунгуску?")
+        )
+      && current.confirmPanelActive == false 
+      && old.confirmPanelActive == true)
+    {
+      return true;
+    }
+  }
+
+  if (settings["l_en"])
+  {
+    for (int i = 0; i < vars.splitData.Length; i++)
+    {
+      if (settings[vars.splitData[i].Item1.ToString() + "l_en"] == true &&
+          current.subLevelName.Equals(vars.splitData[i].Item2) &&
+          current.subLevelName != old.subLevelName)
+      {
+        if (settings["so"] == true && vars.Completed.Add(vars.splitData[i].Item1.ToString() + "l_en"))
+        {
+          return true;
+        }
+
+        if (settings["so"] == false)
+        {
+          return true;
+        }
+      }
     }
   }
 }
 
 isLoading
 {
-    if (current.loadingScreenText == true) 
-    {
-      return true;
-    }
-    else
-    {
-        return false;
-    }
+  if (current.loadingScreenText == true) 
+  {
+    return true;
+  }
+  else
+  {
+      return false;
+  }
 }
