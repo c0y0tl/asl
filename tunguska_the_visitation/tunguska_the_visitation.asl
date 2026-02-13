@@ -58,6 +58,16 @@ startup
 
   vars.Completed = new HashSet<string>();
   vars.lastLevel = "";
+
+  vars.ENG = "Are you ready to leave\nTunguska?";
+  vars.RUS = "Готовы покинуть Тунгуску?";
+  vars.ITA = "Sei pronto a lasciare Tunguska?";
+  vars.DEU = "Bist du bereit Tunguska zu\nverlassen?";
+  vars.CHI = "你做好了准备，确定要离开通古斯了?";
+  vars.UKR = "Чи готові залишити Тунгуску?";
+  vars.SPA = "¿Estás listo para dejar Tunguska?";
+  vars.FRM = "Êtes-vous prêt à quitter Tunguska\n?";
+
 }
 
 init
@@ -68,9 +78,13 @@ init
     // true - Text on loading screen activated
     // false - Text on loading screen deactivated
     vars.Helper["loadingScreenText"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "FadingPanel", "LoadingScreenText", 0x140);
+    // fade
+    // float(0...1) - Black = 1, nothing = 0
     vars.Helper["fade"] = mono.Make<float>("GameManager", "Inst", "UIManager", "FadingPanel", 0x20, 0x78);
     
-    //current time
+    // currentTime
+    // float
+    // 410 - Magic number that appears during loading
     vars.Helper["currentTime"] = mono.Make<float>("GameManager", "Inst", "WorldManager", "CurrentTime");
 
 
@@ -129,13 +143,18 @@ split
 
   if (settings["lt"])
   {
-    if ((current.messageLabel.Equals("Are you ready to leave\nTunguska?") ||
-         current.messageLabel.Equals("Готовы покинуть Тунгуску?")
-        )
-      && current.confirmPanelActive == false 
-      && old.confirmPanelActive == true
-      && old.fade == 0
-      && current.fade > 0)
+    if ((current.messageLabel.Equals(vars.ENG) ||
+         current.messageLabel.Equals(vars.RUS) ||
+         current.messageLabel.Equals(vars.ITA) ||
+         current.messageLabel.Equals(vars.DEU) ||
+         current.messageLabel.Equals(vars.CHI) ||
+         current.messageLabel.Equals(vars.UKR) ||
+         current.messageLabel.Equals(vars.SPA) ||
+         current.messageLabel.Equals(vars.FRM)) && 
+        current.confirmPanelActive == false &&
+        old.confirmPanelActive == true &&
+        old.fade == 0 &&
+        current.fade > 0)
     {
       return true;
     }
@@ -151,7 +170,8 @@ split
           current.currentTime != 410 &&
           vars.lastLevel != current.subLevelName)
       {
-        if (settings["so"] == true && vars.Completed.Add(vars.splitData[i].Item1.ToString() + "l_en"))
+        if (settings["so"] == true &&
+            vars.Completed.Add(vars.splitData[i].Item1.ToString() + "l_en"))
         {
           return true;
         }
@@ -185,7 +205,4 @@ update
   {
     vars.lastLevel = current.subLevelName;
   }
-
-  //print("CURRENT SL " + current.subLevelName + " LL " + vars.lastLevel + " TIME " + current.currentTime);
-  //print("CURRENT fade " + current.fade);
 }
