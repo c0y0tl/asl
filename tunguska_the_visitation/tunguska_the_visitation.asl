@@ -57,6 +57,7 @@ startup
   settings.Add("ns", false, "Split on 'Discovered a news story'");
 
   vars.Completed = new HashSet<string>();
+  vars.lastLevel = "";
 }
 
 init
@@ -67,7 +68,12 @@ init
     // true - Text on loading screen activated
     // false - Text on loading screen deactivated
     vars.Helper["loadingScreenText"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "FadingPanel", "LoadingScreenText", 0x140);
+    vars.Helper["fade"] = mono.Make<float>("GameManager", "Inst", "UIManager", "FadingPanel", 0x20, 0x78);
     
+    //current time
+    vars.Helper["currentTime"] = mono.Make<float>("GameManager", "Inst", "WorldManager", "CurrentTime");
+
+
     // levelName
     // string - Current level
     vars.Helper["levelName"] = mono.MakeString("GameManager", "Inst", "LevelName");
@@ -95,23 +101,20 @@ init
   });
 }
 
-update
+onStart
 {
-  current.Scene = vars.Helper.Scenes.Active.Name ?? old.Scene;
+  vars.lastLevel = "";
+  vars.Completed.Clear();
 }
 
 start
 {
   if (current.currentEnvironment == "Room" && 
-      old.currentEnvironment == "Wilderness")
+      old.fade == 1 &&
+      current.fade < 1)
   {
     return true;
   }
-}
-
-onStart
-{
-  vars.Completed.Clear();
 }
 
 split
@@ -130,7 +133,9 @@ split
          current.messageLabel.Equals("Готовы покинуть Тунгуску?")
         )
       && current.confirmPanelActive == false 
-      && old.confirmPanelActive == true)
+      && old.confirmPanelActive == true
+      && old.fade == 0
+      && current.fade > 0)
     {
       return true;
     }
@@ -142,7 +147,9 @@ split
     {
       if (settings[vars.splitData[i].Item1.ToString() + "l_en"] == true &&
           current.subLevelName.Equals(vars.splitData[i].Item2) &&
-          current.subLevelName != old.subLevelName)
+          old.currentTime == 410 &&
+          current.currentTime != 410 &&
+          vars.lastLevel != current.subLevelName)
       {
         if (settings["so"] == true && vars.Completed.Add(vars.splitData[i].Item1.ToString() + "l_en"))
         {
@@ -166,6 +173,19 @@ isLoading
   }
   else
   {
-      return false;
+    return false;
   }
+}
+
+update
+{
+  current.Scene = vars.Helper.Scenes.Active.Name ?? old.Scene;
+  
+  if (old.fade == 0 && current.fade > 0)
+  {
+    vars.lastLevel = current.subLevelName;
+  }
+
+  //print("CURRENT SL " + current.subLevelName + " LL " + vars.lastLevel + " TIME " + current.currentTime);
+  //print("CURRENT fade " + current.fade);
 }
