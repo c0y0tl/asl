@@ -3,8 +3,9 @@ state("Tunguska")
 
 startup
 {
+  Assembly.Load(File.ReadAllBytes("Components/uhara9")).CreateInstance("Main");
   Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Unity");
-  
+
   vars.Helper.LoadSceneManager = true;
   
   // Sublevels list:
@@ -67,11 +68,17 @@ startup
   vars.UKR = "Чи готові залишити Тунгуску?";
   vars.SPA = "¿Estás listo para dejar Tunguska?";
   vars.FRM = "Êtes-vous prêt à quitter Tunguska\n?";
-
 }
 
 init
 {
+   var Instance = vars.Uhara.CreateTool("Unity", "DotNet", "Instance");
+
+   // LoadingLabel
+   // true - LoadingLabel visible
+   // false - LoadingLabel hidden
+   Instance.Watch<bool>("LoadingLabel", "Assembly-CSharp::MainMenuPanel", "LoadingLabel", "mIsVisibleByAlpha");
+
   vars.Helper.TryLoad = (Func<dynamic, bool>)(mono =>
   {
     // loadingScreenText
@@ -86,7 +93,6 @@ init
     // float
     // 410 - Magic number that appears during loading
     vars.Helper["currentTime"] = mono.Make<float>("GameManager", "Inst", "WorldManager", "CurrentTime");
-
 
     // levelName
     // string - Current level
@@ -110,7 +116,7 @@ init
     // true - When panel is visible
     // false - When panel is hidden
     vars.Helper["confirmPanelActive"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "ConfirmPanel", 0x18);
-    
+  
     return true;
   });
 }
@@ -187,7 +193,7 @@ split
 
 isLoading
 {
-  if (current.loadingScreenText == true) 
+  if (current.loadingScreenText == true || (current.LoadingLabel == true && current.Scene == "MainMenu")) 
   {
     return true;
   }
@@ -199,6 +205,9 @@ isLoading
 
 update
 {
+  vars.Uhara.Update();
+  vars.Helper.Update();
+
   current.Scene = vars.Helper.Scenes.Active.Name ?? old.Scene;
   
   if (old.fade == 0 && current.fade > 0)
