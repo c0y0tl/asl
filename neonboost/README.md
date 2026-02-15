@@ -2,7 +2,7 @@
 Auto Splitter for [Neon Boost](https://www.speedrun.com/neonboost). Based off [ash-help](https://github.com/just-ero/asl-help) library by [Ero](https://github.com/just-ero).
 ## Usage
 * [Downolad](https://github.com/just-ero/asl-help/blob/main/lib/asl-help) asl-help library for LiveSplit.
-* Copy `asl-help` from lib folder to LiveSplit Components folder.
+* Place `asl-help` to LiveSplit Components folder.
 * Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
 * Open the layout settings, and point it to the file you downloaded.
