@@ -79,6 +79,13 @@ init
    // false - LoadingLabel hidden
    Instance.Watch<bool>("LoadingLabel", "Assembly-CSharp::MainMenuPanel", "LoadingLabel", "mIsVisibleByAlpha");
 
+  // fade
+  // float(0...1) - Black = 1, nothing = 0
+  Instance.Watch<float>("fade", "GameManager", "UIManager", "FadingPanel", "Background", "finalAlpha");
+
+  
+  //Instance.Watch<bool>("confirmPanelActive", "ConfirmPanel", "IsActive");
+
   vars.Helper.TryLoad = (Func<dynamic, bool>)(mono =>
   {
     // loadingScreenText
@@ -87,7 +94,7 @@ init
     vars.Helper["loadingScreenText"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "FadingPanel", "LoadingScreenText", 0x140);
     // fade
     // float(0...1) - Black = 1, nothing = 0
-    vars.Helper["fade"] = mono.Make<float>("GameManager", "Inst", "UIManager", "FadingPanel", 0x20, 0x78);
+    //vars.Helper["fade"] = mono.Make<float>("GameManager", "Inst", "UIManager", "FadingPanel", 0x20, 0x78);
     
     // currentTime
     // float
@@ -115,7 +122,7 @@ init
     // confirmPanelActive
     // true - When panel is visible
     // false - When panel is hidden
-    vars.Helper["confirmPanelActive"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "ConfirmPanel", 0x18);
+    //vars.Helper["confirmPanelActive"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "ConfirmPanel", 0x18);
   
     return true;
   });
@@ -157,8 +164,6 @@ split
          current.messageLabel.Equals(vars.UKR) ||
          current.messageLabel.Equals(vars.SPA) ||
          current.messageLabel.Equals(vars.FRM)) && 
-        current.confirmPanelActive == false &&
-        old.confirmPanelActive == true &&
         old.fade == 0 &&
         current.fade > 0)
     {
