@@ -83,9 +83,6 @@ init
   // float(0...1) - Black = 1, nothing = 0
   Instance.Watch<float>("fade", "GameManager", "UIManager", "FadingPanel", "Background", "finalAlpha");
 
-  
-  //Instance.Watch<bool>("confirmPanelActive", "ConfirmPanel", "IsActive");
-
   vars.Helper.TryLoad = (Func<dynamic, bool>)(mono =>
   {
     // loadingScreenText
@@ -119,11 +116,6 @@ init
     // messageLabel
     // string - text on confirm panel
     vars.Helper["messageLabel"] = mono.MakeString("GameManager", "Inst", "UIManager", "ConfirmPanel", "MessageLabel", 0x198);
-    // confirmPanelActive
-    // true - When panel is visible
-    // false - When panel is hidden
-    //vars.Helper["confirmPanelActive"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "ConfirmPanel", 0x18);
-  
     return true;
   });
 }
@@ -148,7 +140,7 @@ split
 {
   if (settings["ns"])
   {
-    if (current.newsStories == old.newsStories - 1)
+    if (old.newsStories == (current.newsStories - 1) )
     {
       return true;
     }
