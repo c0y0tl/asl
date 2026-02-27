@@ -57,8 +57,11 @@ startup
 
   settings.Add("ns", false, "Split on 'Discovered a news story'");
 
+  settings.Add("anc", false, "Check 25 news");
+
   vars.Completed = new HashSet<string>();
   vars.lastLevel = "";
+  vars.credits = false;
 
   vars.ENG = "Are you ready to leave\nTunguska?";
   vars.RUS = "Готовы покинуть Тунгуску?";
@@ -116,6 +119,8 @@ init
     // messageLabel
     // string - text on confirm panel
     vars.Helper["messageLabel"] = mono.MakeString("GameManager", "Inst", "UIManager", "ConfirmPanel", "MessageLabel", 0x198);
+    
+    vars.Helper["confirmPanelIsActive"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "ConfirmPanel", 0x18);
     return true;
   });
 }
@@ -156,9 +161,23 @@ split
          current.messageLabel.Equals(vars.UKR) ||
          current.messageLabel.Equals(vars.SPA) ||
          current.messageLabel.Equals(vars.FRM)) && 
-        old.fade == 0 &&
+        vars.credits == true &&
         current.fade > 0)
     {
+      if (settings["anc"])
+      {
+        if (current.newsStories == 25)
+        {
+          vars.credits = false;
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+      }
+
+      vars.credits = false;
       return true;
     }
   }
@@ -207,8 +226,13 @@ update
 
   current.Scene = vars.Helper.Scenes.Active.Name ?? old.Scene;
   
-  if (old.fade == 0 && current.fade > 0)
+  if (current.fade < 1 && current.fade > 0)
   {
     vars.lastLevel = current.subLevelName;
+  }
+
+  if (current.confirmPanelIsActive == false && old.confirmPanelIsActive == true)
+  {
+    vars.credits = true;
   }
 }
