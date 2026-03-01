@@ -45,7 +45,10 @@ startup
     Tuple.Create(13, "Oblenska", "Oblenska Army Camp")
   };
 
+  settings.Add("woh", false, "Start after creating character");
+
   settings.Add("so", false, "Split Once");
+  settings.SetToolTip("so", "The split for Sublevels will only work when you first enter the SubLevel.");
 
   settings.Add("l_en", false, "Entering the SubLevel");
   foreach (var d in vars.splitData)
@@ -54,10 +57,10 @@ startup
   }
 
   settings.Add("lt", false, "Leave Tunguska");
+  settings.Add("anc", false, "Check 25 news");
+  settings.SetToolTip("anc", "'Leave Tunguska' is triggered only after collecting 25 news stories.");
 
   settings.Add("ns", false, "Split on 'Discovered a news story'");
-
-  settings.Add("anc", false, "Check 25 news");
 
   vars.Completed = new HashSet<string>();
   vars.lastLevel = "";
@@ -120,7 +123,15 @@ init
     // string - text on confirm panel
     vars.Helper["messageLabel"] = mono.MakeString("GameManager", "Inst", "UIManager", "ConfirmPanel", "MessageLabel", 0x198);
     
+    // confirmPanelIsActive
+    // true - when panel is active
+    // false - when panel deactivated
     vars.Helper["confirmPanelIsActive"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "ConfirmPanel", 0x18);
+    
+    // charCreationPanelIsActive
+    // true - when panel is active
+    // false - when panel deactivated
+    vars.Helper["charCreationPanelIsActive"] = mono.Make<bool>("GameManager", "Inst", "UIManager", "CharCreationPanel", 0x18);
     return true;
   });
 }
@@ -128,17 +139,26 @@ init
 onStart
 {
   vars.lastLevel = "";
+  vars.credits = false;
   vars.Completed.Clear();
 }
 
 start
 {
-  if (current.currentEnvironment == "Room" && 
+
+
+  if (settings["woh"] == false &&
+      current.currentEnvironment == "Room" && 
       old.fade == 1 &&
       current.fade < 1)
   {
     return true;
-  }
+  } else if (settings["woh"] == true &&
+             current.charCreationPanelIsActive == false &&
+             old.charCreationPanelIsActive == true)
+            {
+              return true;
+            }
 }
 
 split
