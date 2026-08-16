@@ -1,5 +1,5 @@
 # Legend Of Zord
-Auto Splitter for [Legend Of Zord](#).
+Auto Splitter for [Legend Of Zord](speedrun.com/legend_of_zord).
 ## Usage
 * Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
