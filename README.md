@@ -7,6 +7,7 @@
 * [Joe Wander and the Enigmatic Adventures](joe_wander)
 * [Knight's Night!](knights_night)
 * [Knights of the Temple II](knights_of_the_temple_ii)
+* [Legend Of Zord](legend_of_zord)
 * [Lost Planet: Extreme Condition](lpec)
 * [Metal Gear Solid V: The Phantom Pain](mgsvtpp)
 * [Muppet RaceMania](mrm)
