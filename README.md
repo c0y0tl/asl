@@ -16,5 +16,6 @@
 * [System Shock: Enhanced Edition (Source Port)](systemshock)
 * [System Shock 2](systemshock2)
 * [The Darkness II](td2)
+* [The Crown of Wu](the_crown_of_wu)
 * [The Precursors](the_precursors)
 * [Tunguska: The Visitation](tunguska_the_visitation)
