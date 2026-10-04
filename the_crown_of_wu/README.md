@@ -1,5 +1,5 @@
 # The Crown of Wu
-Auto Splitter and Load Remover for [The Crown of Wu](#).
+Auto Splitter and Load Remover for [The Crown of Wu](https://www.speedrun.com/The_Crown_of_Wu).
 ## Usage
 * Download the script.
 * For LiveSplit add Edit Layout... > Control > Scriptable Auto Splitter to your layout.
